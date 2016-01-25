@@ -1,0 +1,121 @@
+/*
+ * Common
+ */
+.toplevel_page_wordcamp-budget .wp-menu-image img {
+	margin-left: 9px;
+}
+
+/* Forms */
+.wcb-form {
+	display: table;
+}
+
+.wcb-form li {
+	display: table-row;
+}
+
+.wcb-form li > label {
+	display: table-cell;
+	margin-bottom: 1em;
+	vertical-align: top;
+	font-weight: bold;
+}
+
+.wcb-form li > input,
+.wcb-form li > select,
+.wcb-form li > textarea,
+.wcb-form-input-wrapper {
+	display: table-cell;
+	margin-left: 1em;
+	margin-bottom: 1em;
+}
+
+/* margins from above selector aren't applied */
+.wcb-form-input-wrapper {
+	padding-left: 1em;
+	padding-bottom: 1em;
+}
+
+/* Files */
+.wcb_no_files_uploaded.active {
+	display: block;
+}
+
+#wcb_files .description {
+	margin-bottom: 1em;
+}
+
+.wcb_files_list li {
+	list-style-type: disc;
+	margin-left: 15px;
+}
+
+.form-table td p.wcb_no_files_uploaded {
+	margin-bottom: 1em;
+}
+
+
+/*
+ * Payment Requests
+ */
+
+/* Payment methods */
+.payment_method_fields.active {
+	display: block;
+}
+
+tr#row-payment-method label {
+	margin-right: 20px;
+}
+
+/* Log */
+#wcp_log .inside {
+	margin: 0;
+	padding: 0;
+}
+
+#wcp_log .wcp-request-log {
+	border-collapse: collapse;
+	width: 100%;
+}
+
+#wcp_log .wcp-request-log td {
+	padding: 8px;
+}
+
+#wcp_log td.timestamp {
+	width: 130px;
+}
+
+
+/*
+ * Sponsor Invoices
+ */
+
+#wcbsi-billing-information {
+	overflow: auto;
+}
+
+#wcbsi-billing-contact {
+	padding-right: 1em;
+}
+
+#wcbsi-billing-contact,
+#wcbsi-billing-address {
+	float: left;
+	width: 50%;
+	box-sizing: border-box;
+}
+
+#submitpost.wcbsi #minor-publishing-actions {
+	text-align: left;
+}
+
+/* todo this also exists in Dashboard CSS, so maybe centralize */
+.wcbsi-inline-notice {
+	margin-bottom: 5px;
+	box-shadow:    none;
+	border-top:    1px solid rgba( 0, 0, 0, 0.1 );
+	border-right:  1px solid rgba( 0, 0, 0, 0.1 );
+	border-bottom: 1px solid rgba( 0, 0, 0, 0.1 );
+}

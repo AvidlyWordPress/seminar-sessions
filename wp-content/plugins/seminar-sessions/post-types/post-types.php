@@ -1305,8 +1305,8 @@ class Seminar_Post_Types {
 	 * Fired during add_meta_boxes, adds extra meta boxes to our custom post types.
 	 */
 	function add_meta_boxes() {
-		add_meta_box( 'speaker-info',   __( 'Speaker Info',   'wordcamporg'  ), array( $this, 'metabox_speaker_info'   ), 'wcb_speaker',   'side' );
-		add_meta_box( 'organizer-info', __( 'Organizer Info', 'wordcamporg'  ), array( $this, 'metabox_organizer_info' ), 'wcb_organizer', 'side' );
+		// add_meta_box( 'speaker-info',   __( 'Speaker Info',   'wordcamporg'  ), array( $this, 'metabox_speaker_info'   ), 'wcb_speaker',   'side' );
+		//add_meta_box( 'organizer-info', __( 'Organizer Info', 'wordcamporg'  ), array( $this, 'metabox_organizer_info' ), 'wcb_organizer', 'side' );
 		add_meta_box( 'speakers-list',  __( 'Speakers',       'wordcamporg'  ), array( $this, 'metabox_speakers_list'  ), 'wcb_session',   'side' );
 		add_meta_box( 'session-info',   __( 'Session Info',   'wordcamporg'  ), array( $this, 'metabox_session_info'   ), 'wcb_session',   'normal' );
 		add_meta_box( 'sponsor-info',   __( 'Sponsor Info',   'wordcamporg'  ), array( $this, 'metabox_sponsor_info'   ), 'wcb_sponsor',   'normal' );
@@ -1742,13 +1742,17 @@ class Seminar_Post_Types {
 			'not_found'             => __( 'No speakers found', 'wordcamporg' ),
 			'not_found_in_trash'    => __( 'No speakers found in Trash', 'wordcamporg' ),
 			'parent_item_colon'     => __( 'Parent Speaker:', 'wordcamporg' ),
+			'featured_image'		=> __( 'Speaker Photo', 'wordcamporg' ),
+			'set_featured_image'	=> __( 'Set Speaker Photo', 'wordcamporg' ),
+			'use_featured_image'	=> __( 'Use Speaker Photo', 'wordcamporg' ),
+			'remove_featured_image'	=> __( 'Remove Speaker Photo', 'wordcamporg' ),
 		);
 
 		// Register speaker post type.
 		register_post_type( 'wcb_speaker', array(
 			'labels'            => $labels,
 			'rewrite'           => array( 'slug' => 'speaker', 'with_front' => true ),
-			'supports'          => array( 'title', 'editor', 'revisions', 'comments' ),
+			'supports'          => array( 'title', 'editor', 'revisions', 'thumbnail' ),
 			'menu_position'     => 20,
 			'public'            => true,
 			'show_ui'           => true,
@@ -1931,10 +1935,10 @@ class Seminar_Post_Types {
 				$columns =  array_slice( $original_columns, 0, 1, true );
 				$columns += array( 'wcb_speaker_avatar' => __( 'Avatar', 'wordcamporg' ) );
 				$columns += array_slice( $original_columns, 1, 1, true );
-				$columns += array(
-					'wcb_speaker_email'          => __( 'Gravatar Email',         'wordcamporg' ),
-					'wcb_speaker_wporg_username' => __( 'WordPress.org Username', 'wordcamporg' ),
-				);
+				// $columns += array(
+				// 	'wcb_speaker_email'          => __( 'Gravatar Email',         'wordcamporg' ),
+				// 	'wcb_speaker_wporg_username' => __( 'WordPress.org Username', 'wordcamporg' ),
+				// );
 				$columns += array_slice( $original_columns, 2, null, true );
 
 				break;
@@ -1963,22 +1967,22 @@ class Seminar_Post_Types {
 				break;
 
 			case 'wcb_speaker_avatar':
-				edit_post_link( get_avatar( get_post_meta( get_the_ID(), '_wcb_speaker_email', true ), 32 ) );
+				edit_post_link( get_the_post_thumbnail( get_the_ID(), array(75,75) ) );
 				break;
 
-			case 'wcb_speaker_email':
-				echo esc_html( get_post_meta( get_the_ID(), '_wcb_speaker_email', true ) );
-				break;
+			// case 'wcb_speaker_email':
+			// 	echo esc_html( get_post_meta( get_the_ID(), '_wcb_speaker_email', true ) );
+			// 	break;
 
-			case 'wcb_speaker_wporg_username':
-				$user_id    = get_post_meta( get_the_ID(), '_wcpt_user_id', true );
-				$wporg_user = get_user_by( 'id', $user_id );
+			// case 'wcb_speaker_wporg_username':
+			// 	$user_id    = get_post_meta( get_the_ID(), '_wcpt_user_id', true );
+			// 	$wporg_user = get_user_by( 'id', $user_id );
 
-				if ( $wporg_user ) {
-					echo esc_html( $wporg_user->user_nicename );
-				}
+			// 	if ( $wporg_user ) {
+			// 		echo esc_html( $wporg_user->user_nicename );
+			// 	}
 
-				break;
+			// 	break;
 
 			case 'wcb_session_speakers':
 				$speakers = array();

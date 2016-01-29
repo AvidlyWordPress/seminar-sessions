@@ -7,7 +7,7 @@
  * Version: 1.0.0
  *
  * Copyright: WordCamp.org, H1 Web Oy
- * Licence: GPLv2
+ * Licence: GPLv3
  */
 
 include( "jquery-ui-css/jquery-ui-css.php" );

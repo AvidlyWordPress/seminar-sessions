@@ -14,9 +14,9 @@ class WCB_Widget_Sponsors extends WP_Widget {
 	function __construct() {
 		$widget_ops = array(
 			'classname' => 'wcb_widget_sponsors',
-			'description' => __( 'Your WordCamp&#8217;s Sponsors', 'wordcamporg' ),
+			'description' => __( 'Your WordCamp&#8217;s Sponsors', 'seminar-sessions' ),
 		);
-		WP_Widget::__construct( 'wcb_sponsors', __( 'Sponsors', 'wordcamporg' ), $widget_ops );
+		WP_Widget::__construct( 'wcb_sponsors', __( 'Sponsors', 'seminar-sessions' ), $widget_ops );
 	}
 
 	function widget( $args, $instance ) {
@@ -81,7 +81,7 @@ class WCB_Widget_Sponsors extends WP_Widget {
 		$instance = wp_parse_args( (array) $instance, array( 'title' => '' ) );
 		$title = $instance['title'];
 		?>
-		<p><label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title:', 'wordcamporg' ); ?> <input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" type="text" value="<?php echo esc_attr( $title ); ?>" /></label></p>
+		<p><label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title:', 'seminar-sessions' ); ?> <input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" type="text" value="<?php echo esc_attr( $title ); ?>" /></label></p>
 		<?php
 	}
 
@@ -110,9 +110,9 @@ class WCPT_Widget_Speakers extends WP_Widget {
 	function __construct() {
 		$widget_ops = array(
 			'classname' => 'wcpt_widget_speakers',
-			'description' => __( 'Your WordCamp&#8217;s Speakers', 'wordcamporg' ),
+			'description' => __( 'Your WordCamp&#8217;s Speakers', 'seminar-sessions' ),
 		);
-		WP_Widget::__construct( 'wcpt_speakers', __( 'Speakers', 'wordcamporg' ), $widget_ops );
+		WP_Widget::__construct( 'wcpt_speakers', __( 'Speakers', 'seminar-sessions' ), $widget_ops );
 	}
 
 	function widget( $args, $instance ) {
@@ -150,7 +150,7 @@ class WCPT_Widget_Speakers extends WP_Widget {
 
 		$speakers_permalink = $wcpt_plugin->get_wcpt_permalink( 'speakers' );
 		if ( ! empty( $speakers_permalink ) )
-			printf( '<a class="wcpt-speakers-link" href="%s">%s</a>', esc_url( $speakers_permalink ), esc_html( __( 'View all speakers &rarr;', 'wordcamporg' ) ) );
+			printf( '<a class="wcpt-speakers-link" href="%s">%s</a>', esc_url( $speakers_permalink ), esc_html( __( 'View all speakers &rarr;', 'seminar-sessions' ) ) );
 
 		echo $args['after_widget'];
 
@@ -168,11 +168,11 @@ class WCPT_Widget_Speakers extends WP_Widget {
 		$count = absint( $instance['count'] );
 		$random = (bool) $instance['random'];
 		?>
-		<p><label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title:', 'wordcamporg' ); ?> <input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" type="text" value="<?php echo esc_attr( $title ); ?>" /></label></p>
-		<p><label for="<?php echo $this->get_field_id( 'count' ); ?>"><?php _e( 'Number of speakers to show:', 'wordcamporg' ); ?> <input type="text" size="3" id="<?php echo $this->get_field_id( 'count' ); ?>" name="<?php echo $this->get_field_name( 'count' ); ?>" value="<?php echo esc_attr( $count ); ?>" /></label></p>
+		<p><label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title:', 'seminar-sessions' ); ?> <input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" type="text" value="<?php echo esc_attr( $title ); ?>" /></label></p>
+		<p><label for="<?php echo $this->get_field_id( 'count' ); ?>"><?php _e( 'Number of speakers to show:', 'seminar-sessions' ); ?> <input type="text" size="3" id="<?php echo $this->get_field_id( 'count' ); ?>" name="<?php echo $this->get_field_name( 'count' ); ?>" value="<?php echo esc_attr( $count ); ?>" /></label></p>
 		<p>
 			<input class="checkbox" type="checkbox" id="<?php echo $this->get_field_id( 'random' ); ?>" name="<?php echo $this->get_field_name( 'random' ); ?>" <?php checked( $random ); ?> />
-			<label for="<?php echo $this->get_field_id( 'random' ); ?>"><?php _e( 'Display in random order', 'wordcamporg' ); ?></label>
+			<label for="<?php echo $this->get_field_id( 'random' ); ?>"><?php _e( 'Display in random order', 'seminar-sessions' ); ?></label>
 		</p>
 
 		<?php
@@ -212,9 +212,9 @@ class WCPT_Widget_Sessions extends WP_Widget {
 	function __construct() {
 		$widget_ops = array(
 			'classname' => 'wcpt_widget_sessions',
-			'description' => __( 'Show off your WordCamp sessions', 'wordcamporg' ),
+			'description' => __( 'Show off your WordCamp sessions', 'seminar-sessions' ),
 		);
-		WP_Widget::__construct( 'wcpt_sessions', __( 'Sessions', 'wordcamporg' ), $widget_ops );
+		WP_Widget::__construct( 'wcpt_sessions', __( 'Sessions', 'seminar-sessions' ), $widget_ops );
 	}
 
 	function widget( $args, $instance ) {
@@ -256,7 +256,7 @@ class WCPT_Widget_Sessions extends WP_Widget {
 
 		$sessions_permalink = $wcpt_plugin->get_wcpt_permalink( 'sessions' );
 		if ( ! empty( $sessions_permalink ) )
-			printf( '<a class="wcpt-sessions-link" href="%s">%s</a>', esc_url( $sessions_permalink ), esc_html( __( 'View all sessions &rarr;', 'wordcamporg' ) ) );
+			printf( '<a class="wcpt-sessions-link" href="%s">%s</a>', esc_url( $sessions_permalink ), esc_html( __( 'View all sessions &rarr;', 'seminar-sessions' ) ) );
 
 		echo $args['after_widget'];
 
@@ -274,11 +274,11 @@ class WCPT_Widget_Sessions extends WP_Widget {
 		$count = absint( $instance['count'] );
 		$random = (bool) $instance['random'];
 		?>
-		<p><label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title:', 'wordcamporg' ); ?> <input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" type="text" value="<?php echo esc_attr( $title ); ?>" /></label></p>
-		<p><label for="<?php echo $this->get_field_id( 'count' ); ?>"><?php _e( 'Number of speakers to show:', 'wordcamporg' ); ?> <input type="text" size="3" id="<?php echo $this->get_field_id( 'count' ); ?>" name="<?php echo $this->get_field_name( 'count' ); ?>" value="<?php echo esc_attr( $count ); ?>" /></label></p>
+		<p><label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title:', 'seminar-sessions' ); ?> <input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" type="text" value="<?php echo esc_attr( $title ); ?>" /></label></p>
+		<p><label for="<?php echo $this->get_field_id( 'count' ); ?>"><?php _e( 'Number of speakers to show:', 'seminar-sessions' ); ?> <input type="text" size="3" id="<?php echo $this->get_field_id( 'count' ); ?>" name="<?php echo $this->get_field_name( 'count' ); ?>" value="<?php echo esc_attr( $count ); ?>" /></label></p>
 		<p>
 			<input class="checkbox" type="checkbox" id="<?php echo $this->get_field_id( 'random' ); ?>" name="<?php echo $this->get_field_name( 'random' ); ?>" <?php checked( $random ); ?> />
-			<label for="<?php echo $this->get_field_id( 'random' ); ?>"><?php _e( 'Display in random order', 'wordcamporg' ); ?></label>
+			<label for="<?php echo $this->get_field_id( 'random' ); ?>"><?php _e( 'Display in random order', 'seminar-sessions' ); ?></label>
 		</p>
 
 		<?php
@@ -317,9 +317,9 @@ class WCPT_Widget_Organizers extends WP_Widget {
 	function __construct() {
 		$widget_ops = array(
 			'classname' => 'wcpt_widget_organizers',
-			'description' => __( 'Display your organizing team in the sidebar', 'wordcamporg' ),
+			'description' => __( 'Display your organizing team in the sidebar', 'seminar-sessions' ),
 		);
-		WP_Widget::__construct( 'wcpt_organizers', __( 'Organizers', 'wordcamporg' ), $widget_ops );
+		WP_Widget::__construct( 'wcpt_organizers', __( 'Organizers', 'seminar-sessions' ), $widget_ops );
 	}
 
 	function widget( $args, $instance ) {
@@ -357,7 +357,7 @@ class WCPT_Widget_Organizers extends WP_Widget {
 
 		$organizers_permalink = $wcpt_plugin->get_wcpt_permalink( 'organizers' );
 		if ( ! empty( $organizers_permalink ) )
-			printf( '<a class="wcpt-organizers-link" href="%s">%s</a>', esc_url( $organizers_permalink ), esc_html( __( 'Organizing team &rarr;', 'wordcamporg' ) ) );
+			printf( '<a class="wcpt-organizers-link" href="%s">%s</a>', esc_url( $organizers_permalink ), esc_html( __( 'Organizing team &rarr;', 'seminar-sessions' ) ) );
 
 		echo $args['after_widget'];
 
@@ -375,11 +375,11 @@ class WCPT_Widget_Organizers extends WP_Widget {
 		$count = absint( $instance['count'] );
 		$random = (bool) $instance['random'];
 		?>
-		<p><label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title:', 'wordcamporg' ); ?> <input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" type="text" value="<?php echo esc_attr( $title ); ?>" /></label></p>
-		<p><label for="<?php echo $this->get_field_id( 'count' ); ?>"><?php _e( 'Number of organizers to show:', 'wordcamporg' ); ?> <input type="text" size="3" id="<?php echo $this->get_field_id( 'count' ); ?>" name="<?php echo $this->get_field_name( 'count' ); ?>" value="<?php echo esc_attr( $count ); ?>" /></label></p>
+		<p><label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title:', 'seminar-sessions' ); ?> <input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" type="text" value="<?php echo esc_attr( $title ); ?>" /></label></p>
+		<p><label for="<?php echo $this->get_field_id( 'count' ); ?>"><?php _e( 'Number of organizers to show:', 'seminar-sessions' ); ?> <input type="text" size="3" id="<?php echo $this->get_field_id( 'count' ); ?>" name="<?php echo $this->get_field_name( 'count' ); ?>" value="<?php echo esc_attr( $count ); ?>" /></label></p>
 		<p>
 			<input class="checkbox" type="checkbox" id="<?php echo $this->get_field_id( 'random' ); ?>" name="<?php echo $this->get_field_name( 'random' ); ?>" <?php checked( $random ); ?> />
-			<label for="<?php echo $this->get_field_id( 'random' ); ?>"><?php _e( 'Display in random order', 'wordcamporg' ); ?></label>
+			<label for="<?php echo $this->get_field_id( 'random' ); ?>"><?php _e( 'Display in random order', 'seminar-sessions' ); ?></label>
 		</p>
 
 		<?php

@@ -74,7 +74,7 @@ class Seminar_Post_Types {
 	 * Runs during admin_menu
 	 */
 	function admin_menu() {
-		$page = add_submenu_page( 'edit.php?post_type=wcb_sponsor', __( 'Order Sponsor Levels', 'wordcamporg' ), __( 'Order Sponsor Levels', 'wordcamporg' ), 'edit_posts', 'sponsor_levels', array( $this, 'render_order_sponsor_levels' ) );
+		$page = add_submenu_page( 'edit.php?post_type=wcb_sponsor', __( 'Order Sponsor Levels', 'seminar-sessions' ), __( 'Order Sponsor Levels', 'seminar-sessions' ), 'edit_posts', 'sponsor_levels', array( $this, 'render_order_sponsor_levels' ) );
 
 		add_action( "admin_print_scripts-$page", array( $this, 'enqueue_order_sponsor_levels_scripts' ) );
 	}
@@ -98,16 +98,16 @@ class Seminar_Post_Types {
 		?>
 		<div class="wrap">
 			<?php screen_icon(); ?>
-			<h1><?php _e( 'Order Sponsor Levels', 'wordcamporg' ); ?></h1>
+			<h1><?php _e( 'Order Sponsor Levels', 'seminar-sessions' ); ?></h1>
 
 			<?php if ( false !== $_REQUEST['updated'] ) : ?>
-				<div class="updated fade"><p><strong><?php _e( 'Options saved', 'wordcamporg' ); ?></strong></p></div>
+				<div class="updated fade"><p><strong><?php _e( 'Options saved', 'seminar-sessions' ); ?></strong></p></div>
 			<?php endif; ?>
 
 			<form method="post" action="options.php">
 				<?php settings_fields( 'wcb_sponsor_options' ); ?>
 				<div class="description sponsor-order-instructions">
-					<?php _e( 'Change the order of sponsor levels are displayed in the sponsors page template.', 'wordcamporg' ); ?>
+					<?php _e( 'Change the order of sponsor levels are displayed in the sponsors page template.', 'seminar-sessions' ); ?>
 				</div>
 				<ul class="sponsor-order">
 				<?php foreach( $levels as $term ): ?>
@@ -118,7 +118,7 @@ class Seminar_Post_Types {
 				<?php endforeach; ?>
 				</ul>
 				<p class="submit">
-					<input type="submit" class="button-primary" value="<?php _e( 'Save Options', 'wordcamporg' ); ?>" />
+					<input type="submit" class="button-primary" value="<?php _e( 'Save Options', 'seminar-sessions' ); ?>" />
 				</p>
 			</form>
 		</div>
@@ -1006,11 +1006,11 @@ class Seminar_Post_Types {
 
 						// Add speakers and tracks to session meta.
 						if ( ! empty( $speakers_names ) && ! empty( $tracks_names ) )
-							$session_meta .= sprintf( __( 'Presented by %1$s in %2$s.', 'wordcamporg' ), implode( ', ', $speakers_names ), implode( ', ', $tracks_names ) );
+							$session_meta .= sprintf( __( 'Presented by %1$s in %2$s.', 'seminar-sessions' ), implode( ', ', $speakers_names ), implode( ', ', $tracks_names ) );
 						elseif ( ! empty( $speakers_names ) )
-							$session_meta .= sprintf( __( 'Presented by %s.', 'wordcamporg' ), implode( ', ', $speakers_names ) );
+							$session_meta .= sprintf( __( 'Presented by %s.', 'seminar-sessions' ), implode( ', ', $speakers_names ) );
 						elseif ( ! empty( $tracks_names ) )
-							$session_meta .= sprintf( __( 'Presented in %s.', 'wordcamporg' ), implode( ', ', $tracks_names ) );
+							$session_meta .= sprintf( __( 'Presented in %s.', 'seminar-sessions' ), implode( ', ', $tracks_names ) );
 
 						if ( ! empty( $session_meta ) )
 							$session_meta = sprintf( '<p class="wcpt-session-meta">%s</p>', $session_meta );
@@ -1020,14 +1020,14 @@ class Seminar_Post_Types {
 					if ( $url = get_post_meta( $post->ID, '_wcpt_session_slides', true ) ) {
 						$links['slides'] = array(
 							'url'   => $url,
-							'label' => __( 'Slides', 'wordcamporg' ),
+							'label' => __( 'Slides', 'seminar-sessions' ),
 						);
 					}
 
 					if ( $url = get_post_meta( $post->ID, '_wcpt_session_video', true ) ) {
 						$links['video'] = array(
 							'url'   => $url,
-							'label' => __( 'Video', 'wordcamporg' ),
+							'label' => __( 'Video', 'seminar-sessions' ),
 						);
 					}
 
@@ -1226,8 +1226,8 @@ class Seminar_Post_Types {
 		$speakers_html = sprintf(
 			'<h2 class="session-speakers">%s</h2>',
 			_n(
-				__( 'Speaker', 'wordcamporg' ),
-				__( 'Speakers', 'wordcamporg' ),
+				__( 'Speaker', 'seminar-sessions' ),
+				__( 'Speakers', 'seminar-sessions' ),
 				$speakers->post_count
 			)
 		);
@@ -1286,8 +1286,8 @@ class Seminar_Post_Types {
 		$sessions_html = sprintf(
 			'<h2 class="speaker-sessions">%s</h2>',
 			_n(
-				__( 'Session', 'wordcamporg' ),
-				__( 'Sessions', 'wordcamporg' ),
+				__( 'Session', 'seminar-sessions' ),
+				__( 'Sessions', 'seminar-sessions' ),
 				$sessions->post_count
 			)
 		);
@@ -1308,11 +1308,11 @@ class Seminar_Post_Types {
 	 * Fired during add_meta_boxes, adds extra meta boxes to our custom post types.
 	 */
 	function add_meta_boxes() {
-		// add_meta_box( 'speaker-info',   __( 'Speaker Info',   'wordcamporg'  ), array( $this, 'metabox_speaker_info'   ), 'wcb_speaker',   'side' );
-		//add_meta_box( 'organizer-info', __( 'Organizer Info', 'wordcamporg'  ), array( $this, 'metabox_organizer_info' ), 'wcb_organizer', 'side' );
-		add_meta_box( 'speakers-list',  __( 'Speakers',       'wordcamporg'  ), array( $this, 'metabox_speakers_list'  ), 'wcb_session',   'side' );
-		add_meta_box( 'session-info',   __( 'Session Info',   'wordcamporg'  ), array( $this, 'metabox_session_info'   ), 'wcb_session',   'normal' );
-		add_meta_box( 'sponsor-info',   __( 'Sponsor Info',   'wordcamporg'  ), array( $this, 'metabox_sponsor_info'   ), 'wcb_sponsor',   'normal' );
+		// add_meta_box( 'speaker-info',   __( 'Speaker Info',   'seminar-sessions'  ), array( $this, 'metabox_speaker_info'   ), 'wcb_speaker',   'side' );
+		//add_meta_box( 'organizer-info', __( 'Organizer Info', 'seminar-sessions'  ), array( $this, 'metabox_organizer_info' ), 'wcb_organizer', 'side' );
+		add_meta_box( 'speakers-list',  __( 'Speakers',       'seminar-sessions'  ), array( $this, 'metabox_speakers_list'  ), 'wcb_session',   'side' );
+		add_meta_box( 'session-info',   __( 'Session Info',   'seminar-sessions'  ), array( $this, 'metabox_session_info'   ), 'wcb_session',   'normal' );
+		add_meta_box( 'sponsor-info',   __( 'Sponsor Info',   'seminar-sessions'  ), array( $this, 'metabox_sponsor_info'   ), 'wcb_sponsor',   'normal' );
 	}
 
 	/**
@@ -1333,12 +1333,12 @@ class Seminar_Post_Types {
 		<?php wp_nonce_field( 'edit-speaker-info', 'wcpt-meta-speaker-info' ); ?>
 
 		<p>
-			<label for="wcpt-gravatar-email"><?php _e( 'Gravatar Email:', 'wordcamporg' ); ?></label>
+			<label for="wcpt-gravatar-email"><?php _e( 'Gravatar Email:', 'seminar-sessions' ); ?></label>
 			<input type="text" class="widefat" id="wcpt-gravatar-email" name="wcpt-gravatar-email" value="<?php echo esc_attr( $email ); ?>" />
 		</p>
 
 		<p>
-			<label for="wcpt-wporg-username"><?php _e( 'WordPress.org Username:', 'wordcamporg' ); ?></label>
+			<label for="wcpt-wporg-username"><?php _e( 'WordPress.org Username:', 'seminar-sessions' ); ?></label>
 			<input type="text" class="widefat" id="wcpt-wporg-username" name="wcpt-wporg-username" value="<?php echo esc_attr( $wporg_username ); ?>" />
 		</p>
 
@@ -1362,7 +1362,7 @@ class Seminar_Post_Types {
 		<?php wp_nonce_field( 'edit-organizer-info', 'wcpt-meta-organizer-info' ); ?>
 
 		<p>
-			<label for="wcpt-wporg-username"><?php _e( 'WordPress.org Username:', 'wordcamporg' ); ?></label>
+			<label for="wcpt-wporg-username"><?php _e( 'WordPress.org Username:', 'seminar-sessions' ); ?></label>
 			<input type="text" class="widefat" id="wcpt-wporg-username" name="wcpt-wporg-username" value="<?php echo esc_attr( $wporg_username ); ?>" />
 		</p>
 
@@ -1393,7 +1393,7 @@ class Seminar_Post_Types {
 		<?php wp_nonce_field( 'edit-speakers-list', 'wcpt-meta-speakers-list-nonce' ); ?>
 		<!--<input type="text" class="text" id="wcpt-speakers-list" name="wcpt-speakers-list" value="<?php echo esc_attr( $speakers ); ?>" />-->
 		<textarea class="large-text" placeholder="Start typing a name" id="wcpt-speakers-list" name="wcpt-speakers-list"><?php echo esc_textarea( $speakers ); ?></textarea>
-		<p class="description"><?php _e( 'A speaker entry must exist first. Separate multiple speakers with commas.', 'wordcamporg' ); ?></p>
+		<p class="description"><?php _e( 'A speaker entry must exist first. Separate multiple speakers with commas.', 'seminar-sessions' ); ?></p>
 
 		<script>
 		jQuery(document).ready( function($) {
@@ -1445,7 +1445,7 @@ class Seminar_Post_Types {
 		$post             = get_post();
 		$session_time     = absint( get_post_meta( $post->ID, '_wcpt_session_time', true ) );
 		$session_date     = ( $session_time ) ? date( 'Y-m-d', $session_time ) : date( 'Y-m-d' );
-		$session_hours    = ( $session_time ) ? date( 'g', $session_time )     : date( 'g' );
+		$session_hours    = ( $session_time ) ? date( 'G', $session_time )     : date( 'G' );
 		$session_minutes  = ( $session_time ) ? date( 'i', $session_time )     : '00';
 		$session_meridiem = ( $session_time ) ? date( 'a', $session_time )     : 'am';
 		$session_type     = get_post_meta( $post->ID, '_wcpt_session_type', true );
@@ -1456,19 +1456,19 @@ class Seminar_Post_Types {
 		<?php wp_nonce_field( 'edit-session-info', 'wcpt-meta-session-info' ); ?>
 
 		<p>
-			<label for="wcpt-session-date"><?php _e( 'Date:', 'wordcamporg' ); ?></label>
+			<label for="wcpt-session-date"><?php _e( 'Date:', 'seminar-sessions' ); ?></label>
 			<input type="text" id="wcpt-session-date" data-date="<?php echo esc_attr( $session_date ); ?>" name="wcpt-session-date" value="<?php echo esc_attr( $session_date ); ?>" /><br />
-			<label><?php _e( 'Time:', 'wordcamporg' ); ?></label>
+			<label><?php _e( 'Time:', 'seminar-sessions' ); ?></label>
 
-			<select name="wcpt-session-hour" aria-label="<?php _e( 'Session Start Hour', 'wordcamporg' ); ?>">
-				<?php for ( $i = 1; $i <= 12; $i++ ) : ?>
+			<select name="wcpt-session-hour" aria-label="<?php _e( 'Session Start Hour', 'seminar-sessions' ); ?>">
+				<?php for ( $i = 0; $i <= 23; $i++ ) : ?>
 					<option value="<?php echo esc_attr( $i ); ?>" <?php selected( $i, $session_hours ) ?>>
 						<?php echo esc_html( $i ); ?>
 					</option>
 				<?php endfor; ?>
 			</select> :
 
-			<select name="wcpt-session-minutes" aria-label="<?php _e( 'Session Start Minutes', 'wordcamporg' ); ?>">
+			<select name="wcpt-session-minutes" aria-label="<?php _e( 'Session Start Minutes', 'seminar-sessions' ); ?>">
 				<?php for ( $i = '00'; (int) $i <= 55; $i = sprintf( '%02d', (int) $i + 5 ) ) : ?>
 					<option value="<?php echo esc_attr( $i ); ?>" <?php selected( $i, $session_minutes ) ?>>
 						<?php echo esc_html( $i ); ?>
@@ -1476,27 +1476,27 @@ class Seminar_Post_Types {
 				<?php endfor; ?>
 			</select>
 
-			<select name="wcpt-session-meridiem" aria-label="<?php _e( 'Session Meridiem', 'wordcamporg' ); ?>">
+<!-- 			<select name="wcpt-session-meridiem" aria-label="<?php _e( 'Session Meridiem', 'seminar-sessions' ); ?>">
 				<option value="am" <?php selected( 'am', $session_meridiem ) ?>>am</option>
 				<option value="pm" <?php selected( 'pm', $session_meridiem ) ?>>pm</option>
-			</select>
+			</select> -->
 		</p>
 
 		<p>
-			<label for="wcpt-session-type"><?php _e( 'Type:', 'wordcamporg' ); ?></label>
+			<label for="wcpt-session-type"><?php _e( 'Type:', 'seminar-sessions' ); ?></label>
 			<select id="wcpt-session-type" name="wcpt-session-type">
-				<option value="session" <?php selected( $session_type, 'session' ); ?>><?php _e( 'Regular Session', 'wordcamporg' ); ?></option>
-				<option value="custom" <?php selected( $session_type, 'custom' ); ?>><?php _e( 'Break, Lunch, etc.', 'wordcamporg' ); ?></option>
+				<option value="session" <?php selected( $session_type, 'session' ); ?>><?php _e( 'Regular Session', 'seminar-sessions' ); ?></option>
+				<option value="custom" <?php selected( $session_type, 'custom' ); ?>><?php _e( 'Break, Lunch, etc.', 'seminar-sessions' ); ?></option>
 			</select>
 		</p>
 
 		<p>
-			<label for="wcpt-session-slides"><?php _e( 'Slides URL:', 'wordcamporg' ); ?></label>
+			<label for="wcpt-session-slides"><?php _e( 'Slides URL:', 'seminar-sessions' ); ?></label>
 			<input type="text" class="widefat" id="wcpt-session-slides" name="wcpt-session-slides" value="<?php echo esc_url( $session_slides ); ?>" />
 		</p>
 
 		<p>
-			<label for="wcpt-session-video"><?php _e( 'WordPress.TV URL:', 'wordcamporg' ); ?></label>
+			<label for="wcpt-session-video"><?php _e( 'WordPress.TV URL:', 'seminar-sessions' ); ?></label>
 			<input type="text" class="widefat" id="wcpt-session-video" name="wcpt-session-video" value="<?php echo esc_url( $session_video ); ?>" />
 		</p>
 
@@ -1617,11 +1617,11 @@ class Seminar_Post_Types {
 		if ( isset( $_POST['wcpt-meta-session-info'] ) && wp_verify_nonce( $_POST['wcpt-meta-session-info'], 'edit-session-info' ) ) {
 			// Update session time
 			$session_time = strtotime( sprintf(
-				'%s %d:%02d %s',
+				'%s %d:%02d',
 				sanitize_text_field( $_POST['wcpt-session-date'] ),
 				absint( $_POST['wcpt-session-hour'] ),
-				absint( $_POST['wcpt-session-minutes'] ),
-				'am' == $_POST['wcpt-session-meridiem'] ? 'am' : 'pm'
+				absint( $_POST['wcpt-session-minutes'] )
+				//'am' == $_POST['wcpt-session-meridiem'] ? 'am' : 'pm'
 			) );
 			update_post_meta( $post_id, '_wcpt_session_time', $session_time );
 
@@ -1732,23 +1732,23 @@ class Seminar_Post_Types {
 	function register_post_types() {
 		// Speaker post type labels.
 		$labels = array(
-			'name'                  => __( 'Speakers', 'wordcamporg' ),
-			'singular_name'         => __( 'Speaker', 'wordcamporg' ),
-			'add_new'               => __( 'Add New', 'wordcamporg' ),
-			'add_new_item'          => __( 'Create New Speaker', 'wordcamporg' ),
-			'edit'                  => __( 'Edit', 'wordcamporg' ),
-			'edit_item'             => __( 'Edit Speaker', 'wordcamporg' ),
-			'new_item'              => __( 'New Speaker', 'wordcamporg' ),
-			'view'                  => __( 'View Speaker', 'wordcamporg' ),
-			'view_item'             => __( 'View Speaker', 'wordcamporg' ),
-			'search_items'          => __( 'Search Speakers', 'wordcamporg' ),
-			'not_found'             => __( 'No speakers found', 'wordcamporg' ),
-			'not_found_in_trash'    => __( 'No speakers found in Trash', 'wordcamporg' ),
-			'parent_item_colon'     => __( 'Parent Speaker:', 'wordcamporg' ),
-			'featured_image'		=> __( 'Speaker Photo', 'wordcamporg' ),
-			'set_featured_image'	=> __( 'Set Speaker Photo', 'wordcamporg' ),
-			'use_featured_image'	=> __( 'Use Speaker Photo', 'wordcamporg' ),
-			'remove_featured_image'	=> __( 'Remove Speaker Photo', 'wordcamporg' ),
+			'name'                  => __( 'Speakers', 'seminar-sessions' ),
+			'singular_name'         => __( 'Speaker', 'seminar-sessions' ),
+			'add_new'               => __( 'Add New', 'seminar-sessions' ),
+			'add_new_item'          => __( 'Create New Speaker', 'seminar-sessions' ),
+			'edit'                  => __( 'Edit', 'seminar-sessions' ),
+			'edit_item'             => __( 'Edit Speaker', 'seminar-sessions' ),
+			'new_item'              => __( 'New Speaker', 'seminar-sessions' ),
+			'view'                  => __( 'View Speaker', 'seminar-sessions' ),
+			'view_item'             => __( 'View Speaker', 'seminar-sessions' ),
+			'search_items'          => __( 'Search Speakers', 'seminar-sessions' ),
+			'not_found'             => __( 'No speakers found', 'seminar-sessions' ),
+			'not_found_in_trash'    => __( 'No speakers found in Trash', 'seminar-sessions' ),
+			'parent_item_colon'     => __( 'Parent Speaker:', 'seminar-sessions' ),
+			'featured_image'		=> __( 'Speaker Photo', 'seminar-sessions' ),
+			'set_featured_image'	=> __( 'Set Speaker Photo', 'seminar-sessions' ),
+			'use_featured_image'	=> __( 'Use Speaker Photo', 'seminar-sessions' ),
+			'remove_featured_image'	=> __( 'Remove Speaker Photo', 'seminar-sessions' ),
 		);
 
 		// Register speaker post type.
@@ -1768,19 +1768,23 @@ class Seminar_Post_Types {
 
 		// Session post type labels.
 		$labels = array(
-			'name'                  => __( 'Sessions', 'wordcamporg' ),
-			'singular_name'         => __( 'Session', 'wordcamporg' ),
-			'add_new'               => __( 'Add New', 'wordcamporg' ),
-			'add_new_item'          => __( 'Create New Session', 'wordcamporg' ),
-			'edit'                  => __( 'Edit', 'wordcamporg' ),
-			'edit_item'             => __( 'Edit Session', 'wordcamporg' ),
-			'new_item'              => __( 'New Session', 'wordcamporg' ),
-			'view'                  => __( 'View Session', 'wordcamporg' ),
-			'view_item'             => __( 'View Session', 'wordcamporg' ),
-			'search_items'          => __( 'Search Sessions', 'wordcamporg' ),
-			'not_found'             => __( 'No sessions found', 'wordcamporg' ),
-			'not_found_in_trash'    => __( 'No sessions found in Trash', 'wordcamporg' ),
-			'parent_item_colon'     => __( 'Parent Session:', 'wordcamporg' ),
+			'name'                  => __( 'Sessions', 'seminar-sessions' ),
+			'singular_name'         => __( 'Session', 'seminar-sessions' ),
+			'add_new'               => __( 'Add New', 'seminar-sessions' ),
+			'add_new_item'          => __( 'Create New Session', 'seminar-sessions' ),
+			'edit'                  => __( 'Edit', 'seminar-sessions' ),
+			'edit_item'             => __( 'Edit Session', 'seminar-sessions' ),
+			'new_item'              => __( 'New Session', 'seminar-sessions' ),
+			'view'                  => __( 'View Session', 'seminar-sessions' ),
+			'view_item'             => __( 'View Session', 'seminar-sessions' ),
+			'search_items'          => __( 'Search Sessions', 'seminar-sessions' ),
+			'not_found'             => __( 'No sessions found', 'seminar-sessions' ),
+			'not_found_in_trash'    => __( 'No sessions found in Trash', 'seminar-sessions' ),
+			'parent_item_colon'     => __( 'Parent Session:', 'seminar-sessions' ),
+			'featured_image'		=> __( 'Session Photo', 'seminar-sessions' ),
+			'set_featured_image'	=> __( 'Set Session Photo', 'seminar-sessions' ),
+			'use_featured_image'	=> __( 'Use Session Photo', 'seminar-sessions' ),
+			'remove_featured_image'	=> __( 'Remove Session Photo', 'seminar-sessions' ),
 		);
 
 		// Register session post type.
@@ -1800,19 +1804,23 @@ class Seminar_Post_Types {
 
 		// Sponsor post type labels.
 		$labels = array(
-			'name'                  => __( 'Sponsors', 'wordcamporg' ),
-			'singular_name'         => __( 'Sponsor', 'wordcamporg' ),
-			'add_new'               => __( 'Add New', 'wordcamporg' ),
-			'add_new_item'          => __( 'Create New Sponsor', 'wordcamporg' ),
-			'edit'                  => __( 'Edit', 'wordcamporg' ),
-			'edit_item'             => __( 'Edit Sponsor', 'wordcamporg' ),
-			'new_item'              => __( 'New Sponsor', 'wordcamporg' ),
-			'view'                  => __( 'View Sponsor', 'wordcamporg' ),
-			'view_item'             => __( 'View Sponsor', 'wordcamporg' ),
-			'search_items'          => __( 'Search Sponsors', 'wordcamporg' ),
-			'not_found'             => __( 'No sponsors found', 'wordcamporg' ),
-			'not_found_in_trash'    => __( 'No sponsors found in Trash', 'wordcamporg' ),
-			'parent_item_colon'     => __( 'Parent Sponsor:', 'wordcamporg' ),
+			'name'                  => __( 'Sponsors', 'seminar-sessions' ),
+			'singular_name'         => __( 'Sponsor', 'seminar-sessions' ),
+			'add_new'               => __( 'Add New', 'seminar-sessions' ),
+			'add_new_item'          => __( 'Create New Sponsor', 'seminar-sessions' ),
+			'edit'                  => __( 'Edit', 'seminar-sessions' ),
+			'edit_item'             => __( 'Edit Sponsor', 'seminar-sessions' ),
+			'new_item'              => __( 'New Sponsor', 'seminar-sessions' ),
+			'view'                  => __( 'View Sponsor', 'seminar-sessions' ),
+			'view_item'             => __( 'View Sponsor', 'seminar-sessions' ),
+			'search_items'          => __( 'Search Sponsors', 'seminar-sessions' ),
+			'not_found'             => __( 'No sponsors found', 'seminar-sessions' ),
+			'not_found_in_trash'    => __( 'No sponsors found in Trash', 'seminar-sessions' ),
+			'parent_item_colon'     => __( 'Parent Sponsor:', 'seminar-sessions' ),
+			'featured_image'		=> __( 'Sponsor logo', 'seminar-sessions' ),
+			'set_featured_image'	=> __( 'Set Sponsor logo', 'seminar-sessions' ),
+			'use_featured_image'	=> __( 'Use Sponsor logo', 'seminar-sessions' ),
+			'remove_featured_image'	=> __( 'Remove Sponsor logo', 'seminar-sessions' ),
 		);
 
 		// Register sponsor post type.
@@ -1832,26 +1840,30 @@ class Seminar_Post_Types {
 
 		// Organizer post type labels.
 		$labels = array(
-			'name'                  => __( 'Organizers', 'wordcamporg' ),
-			'singular_name'         => __( 'Organizer', 'wordcamporg' ),
-			'add_new'               => __( 'Add New', 'wordcamporg' ),
-			'add_new_item'          => __( 'Create New Organizer', 'wordcamporg' ),
-			'edit'                  => __( 'Edit', 'wordcamporg' ),
-			'edit_item'             => __( 'Edit Organizer', 'wordcamporg' ),
-			'new_item'              => __( 'New Organizer', 'wordcamporg' ),
-			'view'                  => __( 'View Organizer', 'wordcamporg' ),
-			'view_item'             => __( 'View Organizer', 'wordcamporg' ),
-			'search_items'          => __( 'Search Organizers', 'wordcamporg' ),
-			'not_found'             => __( 'No organizers found', 'wordcamporg' ),
-			'not_found_in_trash'    => __( 'No organizers found in Trash', 'wordcamporg' ),
-			'parent_item_colon'     => __( 'Parent Organizer:', 'wordcamporg' ),
+			'name'                  => __( 'Organizers', 'seminar-sessions' ),
+			'singular_name'         => __( 'Organizer', 'seminar-sessions' ),
+			'add_new'               => __( 'Add New', 'seminar-sessions' ),
+			'add_new_item'          => __( 'Create New Organizer', 'seminar-sessions' ),
+			'edit'                  => __( 'Edit', 'seminar-sessions' ),
+			'edit_item'             => __( 'Edit Organizer', 'seminar-sessions' ),
+			'new_item'              => __( 'New Organizer', 'seminar-sessions' ),
+			'view'                  => __( 'View Organizer', 'seminar-sessions' ),
+			'view_item'             => __( 'View Organizer', 'seminar-sessions' ),
+			'search_items'          => __( 'Search Organizers', 'seminar-sessions' ),
+			'not_found'             => __( 'No organizers found', 'seminar-sessions' ),
+			'not_found_in_trash'    => __( 'No organizers found in Trash', 'seminar-sessions' ),
+			'parent_item_colon'     => __( 'Parent Organizer:', 'seminar-sessions' ),
+			'featured_image'		=> __( 'Organizer logo', 'seminar-sessions' ),
+			'set_featured_image'	=> __( 'Set Organizer logo', 'seminar-sessions' ),
+			'use_featured_image'	=> __( 'Use Organizer logo', 'seminar-sessions' ),
+			'remove_featured_image'	=> __( 'Remove Organizer logo', 'seminar-sessions' ),
 		);
 
 		// Register organizer post type.
 		register_post_type( 'wcb_organizer', array(
 			'labels'            => $labels,
 			'rewrite'           => array( 'slug' => 'organizer', 'with_front' => false ),
-			'supports'          => array( 'title', 'editor', 'revisions' ),
+			'supports'          => array( 'title', 'editor', 'revisions', 'thumbnail' ),
 			'menu_position'     => 22,
 			'public'            => false,
 				// todo public or publicly_queryable = true, so consistent with others? at the very least set show_in_json = true
@@ -1870,15 +1882,15 @@ class Seminar_Post_Types {
 	function register_taxonomies() {
 		// Labels for tracks.
 		$labels = array(
-			'name'              => __( 'Tracks', 'wordcamporg' ),
-			'singular_name'     => __( 'Track', 'wordcamporg' ),
-			'search_items'      => __( 'Search Tracks', 'wordcamporg' ),
-			'popular_items'     => __( 'Popular Tracks','wordcamporg' ),
-			'all_items'         => __( 'All Tracks', 'wordcamporg' ),
-			'edit_item'         => __( 'Edit Track', 'wordcamporg' ),
-			'update_item'       => __( 'Update Track', 'wordcamporg' ),
-			'add_new_item'      => __( 'Add Track', 'wordcamporg' ),
-			'new_item_name'     => __( 'New Track', 'wordcamporg' ),
+			'name'              => __( 'Tracks', 'seminar-sessions' ),
+			'singular_name'     => __( 'Track', 'seminar-sessions' ),
+			'search_items'      => __( 'Search Tracks', 'seminar-sessions' ),
+			'popular_items'     => __( 'Popular Tracks','seminar-sessions' ),
+			'all_items'         => __( 'All Tracks', 'seminar-sessions' ),
+			'edit_item'         => __( 'Edit Track', 'seminar-sessions' ),
+			'update_item'       => __( 'Update Track', 'seminar-sessions' ),
+			'add_new_item'      => __( 'Add Track', 'seminar-sessions' ),
+			'new_item_name'     => __( 'New Track', 'seminar-sessions' ),
 		);
 
 		// Register the Tracks taxonomy.
@@ -1893,15 +1905,15 @@ class Seminar_Post_Types {
 
 		// Labels for sponsor levels.
 		$labels = array(
-			'name'              => __( 'Sponsor Levels', 'wordcamporg' ),
-			'singular_name'     => __( 'Sponsor Level', 'wordcamporg' ),
-			'search_items'      => __( 'Search Sponsor Levels', 'wordcamporg' ),
-			'popular_items'     => __( 'Popular Sponsor Levels', 'wordcamporg' ),
-			'all_items'         => __( 'All Sponsor Levels', 'wordcamporg' ),
-			'edit_item'         => __( 'Edit Sponsor Level', 'wordcamporg' ),
-			'update_item'       => __( 'Update Sponsor Level', 'wordcamporg' ),
-			'add_new_item'      => __( 'Add Sponsor Level', 'wordcamporg' ),
-			'new_item_name'     => __( 'New Sponsor Level', 'wordcamporg' ),
+			'name'              => __( 'Sponsor Levels', 'seminar-sessions' ),
+			'singular_name'     => __( 'Sponsor Level', 'seminar-sessions' ),
+			'search_items'      => __( 'Search Sponsor Levels', 'seminar-sessions' ),
+			'popular_items'     => __( 'Popular Sponsor Levels', 'seminar-sessions' ),
+			'all_items'         => __( 'All Sponsor Levels', 'seminar-sessions' ),
+			'edit_item'         => __( 'Edit Sponsor Level', 'seminar-sessions' ),
+			'update_item'       => __( 'Update Sponsor Level', 'seminar-sessions' ),
+			'add_new_item'      => __( 'Add Sponsor Level', 'seminar-sessions' ),
+			'new_item_name'     => __( 'New Sponsor Level', 'seminar-sessions' ),
 		);
 
 		// Register sponsor level taxonomy
@@ -1929,26 +1941,26 @@ class Seminar_Post_Types {
 		switch ( $current_filter ) {
 			case 'manage_wcb_organizer_posts_columns':
 				// Insert at offset 1, that's right after the checkbox.
-				$columns = array_slice( $columns, 0, 1, true ) + array( 'wcb_organizer_avatar' => __( 'Avatar', 'wordcamporg' ) )   + array_slice( $columns, 1, null, true );
+				$columns = array_slice( $columns, 0, 1, true ) + array( 'wcb_organizer_avatar' => __( 'Avatar', 'seminar-sessions' ) )   + array_slice( $columns, 1, null, true );
 				break;
 
 			case 'manage_wcb_speaker_posts_columns':
 				$original_columns = $columns;
 
 				$columns =  array_slice( $original_columns, 0, 1, true );
-				$columns += array( 'wcb_speaker_avatar' => __( 'Avatar', 'wordcamporg' ) );
+				$columns += array( 'wcb_speaker_avatar' => __( 'Avatar', 'seminar-sessions' ) );
 				$columns += array_slice( $original_columns, 1, 1, true );
 				// $columns += array(
-				// 	'wcb_speaker_email'          => __( 'Gravatar Email',         'wordcamporg' ),
-				// 	'wcb_speaker_wporg_username' => __( 'WordPress.org Username', 'wordcamporg' ),
+				// 	'wcb_speaker_email'          => __( 'Gravatar Email',         'seminar-sessions' ),
+				// 	'wcb_speaker_wporg_username' => __( 'WordPress.org Username', 'seminar-sessions' ),
 				// );
 				$columns += array_slice( $original_columns, 2, null, true );
 
 				break;
 
 			case 'manage_wcb_session_posts_columns':
-				$columns = array_slice( $columns, 0, 2, true ) + array( 'wcb_session_speakers' => __( 'Speakers', 'wordcamporg' ) ) + array_slice( $columns, 2, null, true );
-				$columns = array_slice( $columns, 0, 1, true ) + array( 'wcb_session_time'     => __( 'Time', 'wordcamporg' ) )     + array_slice( $columns, 1, null, true );
+				$columns = array_slice( $columns, 0, 2, true ) + array( 'wcb_session_speakers' => __( 'Speakers', 'seminar-sessions' ) ) + array_slice( $columns, 2, null, true );
+				$columns = array_slice( $columns, 0, 1, true ) + array( 'wcb_session_time'     => __( 'Time', 'seminar-sessions' ) )     + array_slice( $columns, 1, null, true );
 				break;
 			default:
 		}
@@ -2042,9 +2054,9 @@ class Seminar_Post_Types {
 			$session_type = 'session';
 
 		if ( 'session' == $session_type )
-			$states['wcpt-session-type'] = __( 'Session', 'wordcamporg' );
+			$states['wcpt-session-type'] = __( 'Session', 'seminar-sessions' );
 		elseif ( 'custom' == $session_type )
-			$states['wcpt-session-type'] = __( 'Custom', 'wordcamporg' );
+			$states['wcpt-session-type'] = __( 'Custom', 'seminar-sessions' );
 
 		return $states;
 	}

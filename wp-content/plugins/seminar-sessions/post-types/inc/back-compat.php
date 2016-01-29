@@ -190,10 +190,10 @@ class WordCamp_Post_Types_Plugin_Back_Compat {
 						}
 
 						if ( ! empty( $speakers ) )
-							$meta['speakers'] = sprintf( __( 'Presented by %s', 'wordcamporg' ), esc_html( rtrim( $speakers, ',' ) ) );
+							$meta['speakers'] = sprintf( __( 'Presented by %s', 'seminar-sessions' ), esc_html( rtrim( $speakers, ',' ) ) );
 
 						if ( ! empty( $track ) )
-							$meta['track'] = sprintf( __( '%s Track', 'wordcamporg' ), esc_html( $track ) );
+							$meta['track'] = sprintf( __( '%s Track', 'seminar-sessions' ), esc_html( $track ) );
 
 						$track_url = get_term_link( $track, 'wcb_track' );
 						if ( ! is_wp_error( $track_url ) )
@@ -331,10 +331,10 @@ class WordCamp_Post_Types_Plugin_Back_Compat {
 		}
 
 		if ( ! empty( $speakers ) )
-			$meta['speakers'] = sprintf( __( 'Presented by %s', 'wordcamporg' ), esc_html( $speakers ) );
+			$meta['speakers'] = sprintf( __( 'Presented by %s', 'seminar-sessions' ), esc_html( $speakers ) );
 
 		if ( ! empty( $track ) )
-			$meta['track'] = sprintf( __( '%s Track', 'wordcamporg' ), esc_html( $track ) );
+			$meta['track'] = sprintf( __( '%s Track', 'seminar-sessions' ), esc_html( $track ) );
 
 		$track_url = get_term_link( $track, 'wcb_track' );
 		if ( ! is_wp_error( $track_url ) )

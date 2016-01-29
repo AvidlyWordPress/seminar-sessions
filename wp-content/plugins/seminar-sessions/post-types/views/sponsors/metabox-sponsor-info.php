@@ -1,11 +1,11 @@
 <ul class="wcpt-form">
 	<li class="wcpt-form-header">
-		<?php _e( 'Contact Information', 'wordcamporg' ); ?>
+		<?php _e( 'Contact Information', 'seminar-sessions' ); ?>
 	</li>
 
 	<li>
 		<label for="_wcpt_sponsor_company_name">
-			<?php _e( 'Company Name:', 'wordcamporg' ); ?>
+			<?php _e( 'Company Name:', 'seminar-sessions' ); ?>
 		</label>
 
 		<input
@@ -19,7 +19,7 @@
 
 	<li>
 		<label for="_wcpt_sponsor_website">
-			<?php _e( 'Website:', 'wordcamporg' ); ?>
+			<?php _e( 'Website:', 'seminar-sessions' ); ?>
 		</label>
 
 		<input
@@ -33,7 +33,7 @@
 
 	<li>
 		<label for="_wcpt_sponsor_first_name">
-			<?php _e( 'First Name:', 'wordcamporg' ); ?>
+			<?php _e( 'First Name:', 'seminar-sessions' ); ?>
 		</label>
 
 		<input
@@ -47,7 +47,7 @@
 
 	<li>
 		<label for="_wcpt_sponsor_last_name">
-			<?php _e( 'Last Name:', 'wordcamporg' ); ?>
+			<?php _e( 'Last Name:', 'seminar-sessions' ); ?>
 		</label>
 
 		<input
@@ -61,7 +61,7 @@
 
 	<li>
 		<label for="_wcpt_sponsor_email_address">
-			<?php _e( 'Email Address:', 'wordcamporg' ); ?>
+			<?php _e( 'Email Address:', 'seminar-sessions' ); ?>
 		</label>
 
 		<input
@@ -75,7 +75,7 @@
 
 	<li>
 		<label for="_wcpt_sponsor_phone_number">
-			<?php _e( 'Phone Number:', 'wordcamporg' ); ?>
+			<?php _e( 'Phone Number:', 'seminar-sessions' ); ?>
 		</label>
 
 		<input
@@ -90,12 +90,12 @@
 
 <ul class="wcpt-form">
 	<li class="wcpt-form-header">
-		<?php _e( 'Address', 'wordcamporg' ); ?>
+		<?php _e( 'Address', 'seminar-sessions' ); ?>
 	</li>
 
 	<li>
 		<label for="_wcpt_sponsor_street_address1">
-			<?php _e( 'Street Address 1:', 'wordcamporg' ); ?>
+			<?php _e( 'Street Address 1:', 'seminar-sessions' ); ?>
 		</label>
 
 		<input
@@ -109,7 +109,7 @@
 
 	<li>
 		<label for="_wcpt_sponsor_street_address2">
-			<?php _e( 'Street Address 2:', 'wordcamporg' ); ?>
+			<?php _e( 'Street Address 2:', 'seminar-sessions' ); ?>
 		</label>
 
 		<input
@@ -123,7 +123,7 @@
 
 	<li>
 		<label for="_wcpt_sponsor_city">
-			<?php _e( 'City:', 'wordcamporg' ); ?>
+			<?php _e( 'City:', 'seminar-sessions' ); ?>
 		</label>
 
 		<input
@@ -137,7 +137,7 @@
 
 	<li>
 		<label for="_wcpt_sponsor_state">
-			<?php _e( 'State / Province:', 'wordcamporg' ); ?>
+			<?php _e( 'State / Province:', 'seminar-sessions' ); ?>
 		</label>
 
 		<input
@@ -151,7 +151,7 @@
 
 	<li>
 		<label for="_wcpt_sponsor_zip_code">
-			<?php _e( 'ZIP / Postal Code:', 'wordcamporg' ); ?>
+			<?php _e( 'ZIP / Postal Code:', 'seminar-sessions' ); ?>
 		</label>
 
 		<input
@@ -165,7 +165,7 @@
 
 	<li>
 		<label for="_wcpt_sponsor_country">
-			<?php _e( 'Country:', 'wordcamporg' ) ?>
+			<?php _e( 'Country:', 'seminar-sessions' ) ?>
 		</label>
 
 		<select id="_wcpt_sponsor_country" name="_wcpt_sponsor_country">

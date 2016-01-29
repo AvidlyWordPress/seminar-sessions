@@ -6,7 +6,7 @@
 
 require( 'inc/back-compat.php' );
 
-class WordCamp_Post_Types_Plugin {
+class Seminar_Post_Types {
 	protected $wcpt_permalinks;
 
 	/**
@@ -2113,4 +2113,4 @@ class WordCamp_Post_Types_Plugin {
 }
 
 // Load the plugin class.
-$GLOBALS['wcpt_plugin'] = new WordCamp_Post_Types_Plugin;
+$GLOBALS['wcpt_plugin'] = new Seminar_Post_Types;

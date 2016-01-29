@@ -9,5 +9,5 @@
  * Licence: GPLv2
  */
 
-include( "post-types/post-types.php" );
 include( "jquery-ui-css/jquery-ui-css.php" );
+include( "post-types/post-types.php" );

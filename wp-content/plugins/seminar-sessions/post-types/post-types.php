@@ -205,6 +205,9 @@ class Seminar_Post_Types {
 
 		// Enqueues scripts and styles for session admin page
 		if ( 'wcb_session' == $post_type ) {
+			if ( 'fi' == get_locale() ) {
+				wp_enqueue_script( 'jquery-ui-datepicker-fi', plugins_url( 'js/jquery.ui.datepicker-fi.js', __FILE__ ), null, null );
+			}
 			wp_enqueue_script( 'jquery-ui-datepicker' );
 			wp_enqueue_style( 'jquery-ui' );
 			wp_enqueue_style( 'wp-datepicker-skins' );

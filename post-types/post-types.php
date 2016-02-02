@@ -49,7 +49,6 @@ class Seminar_Post_Types {
 		add_shortcode( 'organizers', array( $this, 'shortcode_organizers' ) );
 		add_shortcode( 'schedule', array( $this, 'shortcode_schedule' ) );
 
-		add_filter( 'the_content', array( $this, 'add_avatar_to_speaker_posts' ) );
 		add_filter( 'the_content', array( $this, 'add_speaker_info_to_session_posts' ) );
 		add_filter( 'the_content', array( $this, 'add_session_info_to_speaker_posts' ) );
 
@@ -1149,21 +1148,6 @@ class Seminar_Post_Types {
 		global $wp_query;
 
 		return isset( $wp_query->query[ $post_type ] ) && $post_type == $wp_query->query['post_type'];
-	}
-
-	/**
-	 * Add the speaker's avatar to their post
-	 *
-	 * We don't enable it for sites that were created before it was committed, because it may need custom CSS
-	 * to look good with their custom design, but we allow older sites to opt-in.
-	 *
-	 * @param string $content
-	 *
-	 * @return string
-	 */
-	public function add_avatar_to_speaker_posts( $content ) {
-		// No need to do anything here since speaker avatars are handled using regular featured images
-		// This function can be removed completely later
 	}
 
 	/**

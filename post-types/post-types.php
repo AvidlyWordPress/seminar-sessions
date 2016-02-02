@@ -291,14 +291,6 @@ class Seminar_Post_Types {
 		$attr['order']        = in_array( $attr['order'],        array( 'asc', 'desc'           ) ) ? $attr['order']        : 'desc';
 		$attr['speaker_link'] = in_array( $attr['speaker_link'], array( 'permalink'             ) ) ? $attr['speaker_link'] : '';
 
-		/*
-		 * Only allow 2014.capetown to use the new track attribute
-		 * @todo Remove this and update docs after stakeholder review
-		 */
-		if ( ! in_array( get_current_blog_id(), apply_filters( 'wcpt_filter_speakers_by_track_allowed_sites', array( 423 ) ) ) ) {
-			$attr['track'] = 'all';
-		}
-
 		// Fetch all the relevant sessions
 		$session_args = array(
 			'post_type'      => 'wcb_session',
@@ -1163,28 +1155,12 @@ class Seminar_Post_Types {
 	 * @return string
 	 */
 	public function add_avatar_to_speaker_posts( $content ) {
-		global $post;
-		$enabled_site_ids = apply_filters( 'wcpt_speaker_post_avatar_enabled_site_ids', array( 364 ) );    // 2014.sf
-
-		if ( ! $this->is_single_cpt_post( 'wcb_speaker') ) {
-			return $content;
-		}
-
-		$site_id = get_current_blog_id();
-		if ( $site_id <= apply_filters( 'wcpt_speaker_post_avatar_min_site_id', 463 ) && ! in_array( $site_id, $enabled_site_ids ) ) {
-			return $content;
-		}
-
-		$avatar = get_avatar( get_post_meta( $post->ID, '_wcb_speaker_email', true ) );
-		return '<div class="speaker-avatar">' . $avatar . '</div>' . $content;
+		// No need to do anything here since speaker avatars are handled using regular featured images
+		// This function can be removed completely later
 	}
 
 	/**
 	 * Add speaker information to Session posts
-	 *
-	 * We don't enable it for sites that were created before it was committed, because some will have already
-	 * crafted the bio to include this content, so duplicating it would look wrong, but we still allow older
-	 * sites to opt-in.
 	 *
 	 * @param string $content
 	 *
@@ -1192,14 +1168,8 @@ class Seminar_Post_Types {
 	 */
 	function add_speaker_info_to_session_posts( $content ) {
 		global $post;
-		$enabled_site_ids = apply_filters( 'wcpt_session_post_speaker_info_enabled_site_ids', array( 364 ) );    // 2014.sf
 
 		if ( ! $this->is_single_cpt_post( 'wcb_session') ) {
-			return $content;
-		}
-
-		$site_id = get_current_blog_id();
-		if ( $site_id <= apply_filters( 'wcpt_session_post_speaker_info_min_site_id', 463 ) && ! in_array( $site_id, $enabled_site_ids ) ) {
 			return $content;
 		}
 
@@ -1257,14 +1227,8 @@ class Seminar_Post_Types {
 	 */
 	function add_session_info_to_speaker_posts( $content ) {
 		global $post;
-		$enabled_site_ids = apply_filters( 'wcpt_speaker_post_session_info_enabled_site_ids', array( 364 ) );    // 2014.sf
 
 		if ( ! $this->is_single_cpt_post( 'wcb_speaker') ) {
-			return $content;
-		}
-
-		$site_id = get_current_blog_id();
-		if ( $site_id <= apply_filters( 'wcpt_speaker_post_session_info_min_site_id', 463 ) && ! in_array( $site_id, $enabled_site_ids ) ) {
 			return $content;
 		}
 

@@ -2078,6 +2078,13 @@ class Seminar_Post_Types {
 	 * @return string Resulting status.
 	 */
 	public function default_comment_ping_status( $status ) {
+
+		/**
+		 * Return if not in admin, because get_current_screen is not available on front end
+		 */
+		if ( ! is_admin() )
+			return;
+
 		$screen = get_current_screen();
 		if ( ! empty( $screen->post_type ) && $screen->post_type == 'wcb_speaker' )
 			$status = 'closed';

@@ -712,6 +712,13 @@ class Seminar_Post_Types {
 
 		$html .= '</tbody>';
 		$html .= '</table>';
+
+		/**
+		 * Allow filtering the HTML output
+		 * @var $string HTML for schedule.
+		 */
+		$html = apply_filters( 'h1ss_shortcode_schedule_html', $html, $attr, $content );
+
 		return $html;
 	}
 

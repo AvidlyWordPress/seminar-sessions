@@ -570,7 +570,7 @@ class Seminar_Post_Types {
 		$html .= '<tr>';
 
 		// Table headings.
-		$html .= '<th class="wcpt-col-time">Time</th>';
+		$html .= '<th class="wcpt-col-time">' . __( 'Time', 'seminar-sessions' ) . '</th>';
 		foreach ( $columns as $term_id ) {
 			$track = get_term( $term_id, 'wcb_track' );
 			$html .= sprintf(

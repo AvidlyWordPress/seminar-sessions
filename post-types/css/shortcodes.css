@@ -1,6 +1,46 @@
 /*
  * [schedule]
  */
+.wcpt-schedule,
+.wcpt-schedule th,
+.wcpt-schedule td {
+	border: 1px solid #d1d1d1;
+}
+
+.wcpt-schedule {
+	border-collapse: separate;
+	border-spacing: 0;
+	border-width: 1px 0 0 1px;
+	margin: 0 0 1.75em;
+	table-layout: fixed;
+	/* Prevents HTML tables from becoming too wide */
+	width: 100%;
+}
+
+.wcpt-schedule caption,
+.wcpt-schedule th,
+.wcpt-schedule td {
+	font-weight: normal;
+	text-align: left;
+}
+
+.wcpt-schedule th {
+	border-width: 0 1px 1px 0;
+	font-weight: 700;
+}
+
+.wcpt-schedule td {
+	border-width: 0 1px 1px 0;
+}
+
+.wcpt-schedule th,
+.wcpt-schedule td {
+	padding: 0.4375em;
+}
+.wcpt-schedule .global-session {
+	background: #fafafa;
+}
+
 @media screen and ( max-width: 700px ) {
 	.wcpt-schedule {
 		border: none;

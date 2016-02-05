@@ -51,6 +51,7 @@ class Seminar_Post_Types {
 
 		add_filter( 'the_content', array( $this, 'add_speaker_info_to_session_posts' ) );
 		add_filter( 'the_content', array( $this, 'add_session_info_to_speaker_posts' ) );
+		add_filter( 'the_content', array( $this, 'add_session_time_to_session_posts' ) );
 
 		add_filter( 'dashboard_glance_items', array( $this, 'glance_items' ) );
 		add_filter( 'option_default_comment_status', array( $this, 'default_comment_ping_status' ) );
@@ -1260,6 +1261,24 @@ class Seminar_Post_Types {
 	}
 
 	/**
+	 * Adds the session time to the end of session posts
+	 * @param string $content
+	 * @return  string
+	 */
+	function add_session_time_to_session_posts( $content ) {
+		global $post;
+
+		if ( ! $this->is_single_cpt_post( 'wcb_session') ) {
+			return $content;
+		}
+
+		$html = '<h2 class="session-time">' . __( 'Session time', 'seminar-sessions' ) . '</h2>';
+		$html .= '<p class="session-time">' . esc_html( $this->get_session_date_and_time() ) . '</p>';
+
+		return $content . $html;
+	}
+
+	/**
 	 * Fired during add_meta_boxes, adds extra meta boxes to our custom post types.
 	 */
 	function add_meta_boxes() {
@@ -1974,13 +1993,22 @@ class Seminar_Post_Types {
 				break;
 
 			case 'wcb_session_time':
-				$session_time = absint( get_post_meta( get_the_ID(), '_wcpt_session_time', true ) );
-				$session_time = ( $session_time ) ? date( get_option( 'time_format' ), $session_time ) : '&mdash;';
+				$session_time = $this->get_session_date_and_time();
 				echo esc_html( $session_time );
 				break;
 
 			default:
 		}
+	}
+
+	/**
+	 * Gets and returns the session date and time
+	 * @return [type] [description]
+	 */
+	function get_session_date_and_time() {
+		$session_time = absint( get_post_meta( get_the_ID(), '_wcpt_session_time', true ) );
+		$session_time = ( $session_time ) ? date( get_option( 'date_format' ) . ' ' . get_option( 'time_format' ), $session_time ) : '&mdash;';
+		return $session_time;
 	}
 
 	/**

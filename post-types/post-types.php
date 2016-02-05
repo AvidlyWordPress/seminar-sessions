@@ -239,7 +239,14 @@ class Seminar_Post_Types {
 	}
 
 	function wp_enqueue_scripts() {
-		wp_enqueue_style( 'wcb_shortcodes', plugins_url( 'css/shortcodes.css', __FILE__ ), array(), 2 );
+		$post = get_queried_object();
+		if ( has_shortcode( $post->post_content, 'sessions' ) || has_shortcode( $post->post_content, 'speakers' ) ) {
+			wp_enqueue_style( 'wcb_shortcodes', plugins_url( 'css/shortcodes.css', __FILE__ ), array(), 2 );
+		}
+		if ( has_shortcode( $post->post_content, 'schedule' ) ) {
+			wp_enqueue_script( 'wcb_tablesaw_js', plugins_url( 'js/tablesaw.js', __FILE__ ), array( 'jquery' ), '2.0.2', true );
+			wp_enqueue_style( 'wcb_tablesaw_css', plugins_url( 'css/tablesaw.bare.css', __FILE__ ), array(), 2 );
+		}
 	}
 
 	/**
@@ -566,19 +573,21 @@ class Seminar_Post_Types {
 			unset( $used_terms );
 		}
 
-		$html = '<table class="wcpt-schedule" border="0">';
+		$html = '<table id="schedule-' . rand( 1, 1000 ) . '" class="tablesaw tablesaw-stack" data-tablesaw-mode="stack">';
 		$html .= '<thead>';
 		$html .= '<tr>';
 
 		// Table headings.
-		$html .= '<th class="wcpt-col-time">' . __( 'Time', 'seminar-sessions' ) . '</th>';
+		$html .= '<th class="wcpt-col-time" data-tablesaw-priority="persist">' . __( 'Time', 'seminar-sessions' ) . '</th>';
+		$column_count = 1;
 		foreach ( $columns as $term_id ) {
 			$track = get_term( $term_id, 'wcb_track' );
 			$html .= sprintf(
-				'<th class="wcpt-col-track"> <span class="wcpt-track-name">%s</span> <span class="wcpt-track-description">%s</span> </th>',
+				'<th class="wcpt-col-track" data-tablesaw-priority="' . $column_count . '"> <span class="wcpt-track-name">%s</span> <span class="wcpt-track-description">%s</span> </th>',
 				isset( $track->term_id ) ? esc_html( $track->name ) : '',
 				isset( $track->term_id ) ? esc_html( $track->description ) : ''
 			);
+			$column_count++;
 		}
 
 		$html .= '</tr>';

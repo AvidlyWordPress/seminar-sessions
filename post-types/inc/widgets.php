@@ -14,7 +14,7 @@ class WCB_Widget_Sponsors extends WP_Widget {
 	function __construct() {
 		$widget_ops = array(
 			'classname' => 'wcb_widget_sponsors',
-			'description' => __( 'Your WordCamp&#8217;s Sponsors', 'seminar-sessions' ),
+			'description' => __( 'Your Sponsors', 'seminar-sessions' ),
 		);
 		WP_Widget::__construct( 'wcb_sponsors', __( 'Sponsors', 'seminar-sessions' ), $widget_ops );
 	}
@@ -110,7 +110,7 @@ class WCPT_Widget_Speakers extends WP_Widget {
 	function __construct() {
 		$widget_ops = array(
 			'classname' => 'wcpt_widget_speakers',
-			'description' => __( 'Your WordCamp&#8217;s Speakers', 'seminar-sessions' ),
+			'description' => __( 'Your Speakers', 'seminar-sessions' ),
 		);
 		WP_Widget::__construct( 'wcpt_speakers', __( 'Speakers', 'seminar-sessions' ), $widget_ops );
 	}
@@ -212,7 +212,7 @@ class WCPT_Widget_Sessions extends WP_Widget {
 	function __construct() {
 		$widget_ops = array(
 			'classname' => 'wcpt_widget_sessions',
-			'description' => __( 'Show off your WordCamp sessions', 'seminar-sessions' ),
+			'description' => __( 'Show off your sessions', 'seminar-sessions' ),
 		);
 		WP_Widget::__construct( 'wcpt_sessions', __( 'Sessions', 'seminar-sessions' ), $widget_ops );
 	}

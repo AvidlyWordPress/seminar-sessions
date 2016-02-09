@@ -64,7 +64,7 @@ class WCB_Widget_Sponsors extends WP_Widget {
 				<?php while ( $sponsors->have_posts() ) : $sponsors->the_post(); ?>
 
 					<a class="sponsor-logo" href="<?php the_permalink(); ?>">
-						<?php ( has_post_thumbnail() ) ? the_post_thumbnail() : the_title(); ?>
+						<?php ( has_post_thumbnail() ) ? the_post_thumbnail( array( 200, 150 ) ) : the_title(); ?>
 					</a>
 
 				<?php endwhile; ?>

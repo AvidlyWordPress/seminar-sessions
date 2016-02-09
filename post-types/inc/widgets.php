@@ -122,6 +122,7 @@ class WCPT_Widget_Speakers extends WP_Widget {
 		$transient_key = 'wcpt-' . md5( $args['widget_id'] );
 		$instance['title'] = apply_filters( 'widget_title', $instance['title'], $instance, $this->id_base );
 
+
 		echo $args['before_widget'];
 		if ( $instance['title'] )
 			echo $args['before_title'] . $instance['title'] . $args['after_title'];
@@ -135,6 +136,9 @@ class WCPT_Widget_Speakers extends WP_Widget {
 
 			if ( $instance['random'] )
 				$attr['orderby'] = 'rand';
+
+			if ( $instance['avatar_size'] )
+				$attr['avatar_size'] = strip_tags( $instance['avatar_size'] );
 
 			$attr_str = array();
 			foreach ( $attr as $key => $value )
@@ -162,14 +166,17 @@ class WCPT_Widget_Speakers extends WP_Widget {
 			'title' => '',
 			'count' => 3,
 			'random' => false,
+			'avatar_size' => 150,
 		) );
 
 		$title = $instance['title'];
 		$count = absint( $instance['count'] );
 		$random = (bool) $instance['random'];
+		$avatar_size = $instance['avatar_size'];
 		?>
 		<p><label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title:', 'seminar-sessions' ); ?> <input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" type="text" value="<?php echo esc_attr( $title ); ?>" /></label></p>
 		<p><label for="<?php echo $this->get_field_id( 'count' ); ?>"><?php _e( 'Number of speakers to show:', 'seminar-sessions' ); ?> <input type="text" size="3" id="<?php echo $this->get_field_id( 'count' ); ?>" name="<?php echo $this->get_field_name( 'count' ); ?>" value="<?php echo esc_attr( $count ); ?>" /></label></p>
+		<p><label for="<?php echo $this->get_field_id( 'avatar_size' ); ?>"><?php _e( 'Speaker image size (in px or name, eg. medium):', 'seminar-sessions' ); ?> <input type="text" class="widefat" id="<?php echo $this->get_field_id( 'avatar_size' ); ?>" name="<?php echo $this->get_field_name( 'avatar_size' ); ?>" value="<?php echo esc_attr( $avatar_size ); ?>" /></label></p>
 		<p>
 			<input class="checkbox" type="checkbox" id="<?php echo $this->get_field_id( 'random' ); ?>" name="<?php echo $this->get_field_name( 'random' ); ?>" <?php checked( $random ); ?> />
 			<label for="<?php echo $this->get_field_id( 'random' ); ?>"><?php _e( 'Display in random order', 'seminar-sessions' ); ?></label>
@@ -184,9 +191,11 @@ class WCPT_Widget_Speakers extends WP_Widget {
 			'title' => '',
 			'count' => 3,
 			'random' => false,
+			'avatar_size' => 150
 		) );
 
 		$instance['title'] = strip_tags( $new_instance['title'] );
+		$instance['avatar_size'] = strip_tags( $new_instance['avatar_size'] );
 		$instance['count'] = absint( $new_instance['count'] );
 		$instance['random'] = (bool) $new_instance['random'];
 

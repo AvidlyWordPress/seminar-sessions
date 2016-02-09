@@ -240,6 +240,9 @@ class Seminar_Post_Types {
 
 	function wp_enqueue_scripts() {
 		$post = get_queried_object();
+		if ( ! is_a( $post,  'WP_Post' ) )
+			return;
+
 		if ( has_shortcode( $post->post_content, 'sessions' ) || has_shortcode( $post->post_content, 'speakers' ) ) {
 			wp_enqueue_style( 'wcb_shortcodes', plugins_url( 'css/shortcodes.css', __FILE__ ), array(), 2 );
 		}
@@ -281,12 +284,13 @@ class Seminar_Post_Types {
 		// Prepare the shortcode arguments
 		$attr = shortcode_atts( array(
 			'show_avatars'   => true,
-			'avatar_size'    => 100,
+			'avatar_size'    => 150,
 			'posts_per_page' => -1,
 			'orderby'        => 'date',
 			'order'          => 'desc',
 			'track'          => 'all',
-			'speaker_link'   => '',
+			'speaker_link'   => 'permalink',
+			'category' 		 => 'all'
 		), $attr );
 
 		foreach ( array( 'orderby', 'order', 'track', 'speaker_link' ) as $key_for_case_sensitive_value ) {
@@ -296,7 +300,11 @@ class Seminar_Post_Types {
 		$attr['show_avatars'] = $this->str_to_bool( $attr['show_avatars'] );
 		$attr['orderby']      = in_array( $attr['orderby'],      array( 'date', 'title', 'rand' ) ) ? $attr['orderby']      : 'date';
 		$attr['order']        = in_array( $attr['order'],        array( 'asc', 'desc'           ) ) ? $attr['order']        : 'desc';
-		$attr['speaker_link'] = in_array( $attr['speaker_link'], array( 'permalink'             ) ) ? $attr['speaker_link'] : '';
+		$attr['speaker_link'] = in_array( $attr['speaker_link'], array( 'permalink'             ) ) ? $attr['speaker_link'] : 'permalink';
+		if ( !is_array( $attr['avatar_size'] ) && !is_string( $attr['avatar_size'] ) ) {
+			$attr['avatar_size'] = array( absint( $attr['avatar_size'] ), absint( $attr['avatar_size'] ) );
+		}
+		error_log( "Avatar size: " . print_r( $attr['avatar_size'], true ) );
 
 		// Fetch all the relevant sessions
 		$session_args = array(
@@ -308,6 +316,16 @@ class Seminar_Post_Types {
 			$session_args['tax_query'] = array(
 				array(
 					'taxonomy' => 'wcb_track',
+					'field'    => 'slug',
+					'terms'    => explode( ',', $attr['track'] ),
+				),
+			);
+		}
+
+		if ( 'all' != $attr['category'] ) {
+			$session_args['tax_query'] = array(
+				array(
+					'taxonomy' => 'wcb_speakercat',
 					'field'    => 'slug',
 					'terms'    => explode( ',', $attr['track'] ),
 				),
@@ -377,7 +395,7 @@ class Seminar_Post_Types {
 
 				<!-- Organizers note: The id attribute is deprecated and only remains for backwards compatibility, please use the corresponding class to target individual speakers -->
 				<div id="wcorg-speaker-<?php echo sanitize_html_class( $post->post_name ); ?>" class="<?php echo implode( ' ', $speaker_classes ); ?>">
-					<h2>
+					<h2 class="wcorg-speaker-title">
 						<?php if ( 'permalink' === $attr['speaker_link'] ) : ?>
 							<a href="<?php the_permalink(); ?>">
 								<?php the_title(); ?>
@@ -387,8 +405,16 @@ class Seminar_Post_Types {
 						<?php endif; ?>
 					</h2>
 					<div class="wcorg-speaker-description">
-						<?php echo ( $attr['show_avatars'] ) ? get_avatar( get_post_meta( get_the_ID(), '_wcb_speaker_email', true ), absint( $attr['avatar_size'] ) ) : ''; ?>
+						<?php if ( 'permalink' === $attr['speaker_link'] ) : ?>
+							<a href="<?php the_permalink(); ?>">
+						<?php endif; ?>
+						<?php echo ( $attr['show_avatars'] ) ? get_the_post_thumbnail( $post->ID, $attr['avatar_size'] ) : ''; ?>
+						<?php if ( 'permalink' === $attr['speaker_link'] ) : ?>
+							</a>
+						<?php endif; ?>
+						<?php if ( $attr['show_description'] ) : ?>
 						<?php the_content(); ?>
+						<?php endif; ?>
 					</div>
 				</div><!-- .wcorg-speaker -->
 
@@ -436,7 +462,7 @@ class Seminar_Post_Types {
 					<h2><?php the_title(); ?></h2>
 					<div class="wcorg-organizer-description">
 						<?php /* Unlike speakers, organizers don't have a Gravatar e-mail field, so we pass the linked user ID to get_avatar */ ?>
-						<?php echo ( $attr['show_avatars'] ) ? get_avatar( absint( get_post_meta( get_the_ID(), '_wcpt_user_id', true ) ), absint( $attr['avatar_size'] ) ) : ''; ?>
+						<?php echo ( $attr['show_avatars'] ) ? get_avatar( absint( get_post_meta( get_the_ID(), '_wcpt_user_id', true ) ), $attr['avatar_size'] ) : ''; ?>
 						<?php the_content(); ?>
 					</div>
 				</div>
@@ -1904,6 +1930,29 @@ class Seminar_Post_Types {
 			'labels'                => $labels,
 			'rewrite'               => array( 'slug' => 'sponsor_level' ),
 			'query_var'             => 'sponsor_level',
+			'hierarchical'          => true,
+			'public'                => true,
+			'show_ui'               => true,
+		) );
+
+		// Labels for speaker categories.
+		$labels = array(
+			'name'              => __( 'Speaker Categories', 'seminar-sessions' ),
+			'singular_name'     => __( 'Speaker Category', 'seminar-sessions' ),
+			'search_items'      => __( 'Search Categories', 'seminar-sessions' ),
+			'popular_items'     => __( 'Popular Categories','seminar-sessions' ),
+			'all_items'         => __( 'All Categories', 'seminar-sessions' ),
+			'edit_item'         => __( 'Edit Category', 'seminar-sessions' ),
+			'update_item'       => __( 'Update Category', 'seminar-sessions' ),
+			'add_new_item'      => __( 'Add Category', 'seminar-sessions' ),
+			'new_item_name'     => __( 'New Category', 'seminar-sessions' ),
+		);
+
+		// Register the speakers category taxonomy.
+		register_taxonomy( 'wcb_speakercat', 'wcb_speaker', array(
+			'labels'                => $labels,
+			'rewrite'               => array( 'slug' => 'speaker-category' ),
+			'query_var'             => 'speakercat',
 			'hierarchical'          => true,
 			'public'                => true,
 			'show_ui'               => true,

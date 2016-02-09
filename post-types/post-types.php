@@ -1910,6 +1910,7 @@ class Seminar_Post_Types {
 			'hierarchical'          => true,
 			'public'                => true,
 			'show_ui'               => true,
+			'show_admin_column'		=> true
 		) );
 
 		// Labels for sponsor levels.
@@ -1933,6 +1934,7 @@ class Seminar_Post_Types {
 			'hierarchical'          => true,
 			'public'                => true,
 			'show_ui'               => true,
+			'show_admin_column'		=> true
 		) );
 
 		// Labels for speaker categories.
@@ -1956,6 +1958,7 @@ class Seminar_Post_Types {
 			'hierarchical'          => true,
 			'public'                => true,
 			'show_ui'               => true,
+			'show_admin_column'		=> true
 		) );
 	}
 

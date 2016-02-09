@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 "Project-Id-Version: Seminar Sessions\n"
-"POT-Creation-Date: 2016-02-05 12:49+0200\n"
+"POT-Creation-Date: 2016-02-09 15:44+0200\n"
 "PO-Revision-Date: 2016-01-29 15:11+0200\n"
 "Last-Translator: Daniel Koskinen <daniel.koskinen@gmail.com>\n"
 "Language-Team: Daniel Koskinen <daniel.koskinen@gmail.com>\n"
@@ -34,12 +34,12 @@ msgstr ""
 msgid "Your Sponsors"
 msgstr ""
 
-#: post-types/inc/widgets.php:19 post-types/post-types.php:1790
+#: post-types/inc/widgets.php:19 post-types/post-types.php:1816
 msgid "Sponsors"
 msgstr ""
 
-#: post-types/inc/widgets.php:84 post-types/inc/widgets.php:171
-#: post-types/inc/widgets.php:277 post-types/inc/widgets.php:378
+#: post-types/inc/widgets.php:84 post-types/inc/widgets.php:177
+#: post-types/inc/widgets.php:286 post-types/inc/widgets.php:387
 msgid "Title:"
 msgstr ""
 
@@ -47,51 +47,55 @@ msgstr ""
 msgid "Your Speakers"
 msgstr ""
 
-#: post-types/inc/widgets.php:115 post-types/post-types.php:1201
-#: post-types/post-types.php:1296 post-types/post-types.php:1718
-#: post-types/post-types.php:1945
+#: post-types/inc/widgets.php:115 post-types/post-types.php:1227
+#: post-types/post-types.php:1322 post-types/post-types.php:1744
+#: post-types/post-types.php:1994
 msgid "Speakers"
 msgstr ""
 
-#: post-types/inc/widgets.php:153
+#: post-types/inc/widgets.php:157
 msgid "View all speakers &rarr;"
 msgstr ""
 
-#: post-types/inc/widgets.php:172 post-types/inc/widgets.php:278
+#: post-types/inc/widgets.php:178 post-types/inc/widgets.php:287
 msgid "Number of speakers to show:"
 msgstr ""
 
-#: post-types/inc/widgets.php:175 post-types/inc/widgets.php:281
-#: post-types/inc/widgets.php:382
+#: post-types/inc/widgets.php:179
+msgid "Speaker image size (in px or name, eg. medium):"
+msgstr ""
+
+#: post-types/inc/widgets.php:182 post-types/inc/widgets.php:290
+#: post-types/inc/widgets.php:391
 msgid "Display in random order"
 msgstr ""
 
-#: post-types/inc/widgets.php:215
+#: post-types/inc/widgets.php:224
 msgid "Show off your sessions"
 msgstr ""
 
-#: post-types/inc/widgets.php:217 post-types/post-types.php:1255
-#: post-types/post-types.php:1754
+#: post-types/inc/widgets.php:226 post-types/post-types.php:1281
+#: post-types/post-types.php:1780
 msgid "Sessions"
 msgstr ""
 
-#: post-types/inc/widgets.php:259
+#: post-types/inc/widgets.php:268
 msgid "View all sessions &rarr;"
 msgstr ""
 
-#: post-types/inc/widgets.php:320
+#: post-types/inc/widgets.php:329
 msgid "Display your organizing team in the sidebar"
 msgstr ""
 
-#: post-types/inc/widgets.php:322 post-types/post-types.php:1826
+#: post-types/inc/widgets.php:331 post-types/post-types.php:1852
 msgid "Organizers"
 msgstr ""
 
-#: post-types/inc/widgets.php:360
+#: post-types/inc/widgets.php:369
 msgid "Organizing team &rarr;"
 msgstr ""
 
-#: post-types/inc/widgets.php:379
+#: post-types/inc/widgets.php:388
 msgid "Number of organizers to show:"
 msgstr ""
 
@@ -113,412 +117,448 @@ msgstr ""
 msgid "Save Options"
 msgstr ""
 
-#: post-types/post-types.php:581 post-types/post-types.php:1946
+#: post-types/post-types.php:607 post-types/post-types.php:1995
 msgid "Time"
 msgstr ""
 
-#: post-types/post-types.php:1017
+#: post-types/post-types.php:1043
 #, php-format
 msgid "Presented by %1$s in %2$s."
 msgstr ""
 
-#: post-types/post-types.php:1019
+#: post-types/post-types.php:1045
 #, php-format
 msgid "Presented by %s."
 msgstr ""
 
-#: post-types/post-types.php:1021
+#: post-types/post-types.php:1047
 #, php-format
 msgid "Presented in %s."
 msgstr ""
 
-#: post-types/post-types.php:1031
+#: post-types/post-types.php:1057
 msgid "Slides"
 msgstr ""
 
-#: post-types/post-types.php:1038
+#: post-types/post-types.php:1064
 msgid "Video"
 msgstr ""
 
-#: post-types/post-types.php:1200 post-types/post-types.php:1719
+#: post-types/post-types.php:1226 post-types/post-types.php:1745
 msgid "Speaker"
 msgstr ""
 
-#: post-types/post-types.php:1254 post-types/post-types.php:1755
-#: post-types/post-types.php:2049
+#: post-types/post-types.php:1280 post-types/post-types.php:1781
+#: post-types/post-types.php:2098
 msgid "Session"
 msgstr ""
 
-#: post-types/post-types.php:1284
+#: post-types/post-types.php:1310
 msgid "Session time"
 msgstr ""
 
-#: post-types/post-types.php:1297
+#: post-types/post-types.php:1323
 msgid "Session Info"
 msgstr ""
 
-#: post-types/post-types.php:1298
+#: post-types/post-types.php:1324
 msgid "Sponsor Info"
 msgstr ""
 
-#: post-types/post-types.php:1319
+#: post-types/post-types.php:1345
 msgid "Gravatar Email:"
 msgstr ""
 
-#: post-types/post-types.php:1324 post-types/post-types.php:1348
+#: post-types/post-types.php:1350 post-types/post-types.php:1374
 msgid "WordPress.org Username:"
 msgstr ""
 
-#: post-types/post-types.php:1379
+#: post-types/post-types.php:1405
 msgid ""
 "A speaker entry must exist first. Separate multiple speakers with commas."
 msgstr ""
 
-#: post-types/post-types.php:1442
+#: post-types/post-types.php:1468
 msgid "Date:"
 msgstr ""
 
-#: post-types/post-types.php:1444
+#: post-types/post-types.php:1470
 msgid "Time:"
 msgstr ""
 
-#: post-types/post-types.php:1446
+#: post-types/post-types.php:1472
 msgid "Session Start Hour"
 msgstr ""
 
-#: post-types/post-types.php:1454
+#: post-types/post-types.php:1480
 msgid "Session Start Minutes"
 msgstr ""
 
-#: post-types/post-types.php:1462
+#: post-types/post-types.php:1488
 msgid "Session Meridiem"
 msgstr ""
 
-#: post-types/post-types.php:1469
+#: post-types/post-types.php:1495
 msgid "Type:"
 msgstr ""
 
-#: post-types/post-types.php:1471
+#: post-types/post-types.php:1497
 msgid "Regular Session"
 msgstr ""
 
-#: post-types/post-types.php:1472
+#: post-types/post-types.php:1498
 msgid "Break, Lunch, etc."
 msgstr ""
 
-#: post-types/post-types.php:1477
+#: post-types/post-types.php:1503
 msgid "Slides URL:"
 msgstr ""
 
-#: post-types/post-types.php:1482
+#: post-types/post-types.php:1508
 msgid "WordPress.TV URL:"
 msgstr ""
 
-#: post-types/post-types.php:1720 post-types/post-types.php:1756
-#: post-types/post-types.php:1792 post-types/post-types.php:1828
+#: post-types/post-types.php:1746 post-types/post-types.php:1782
+#: post-types/post-types.php:1818 post-types/post-types.php:1854
 msgid "Add New"
 msgstr ""
 
-#: post-types/post-types.php:1721
+#: post-types/post-types.php:1747
 msgid "Create New Speaker"
 msgstr ""
 
-#: post-types/post-types.php:1722 post-types/post-types.php:1758
-#: post-types/post-types.php:1794 post-types/post-types.php:1830
+#: post-types/post-types.php:1748 post-types/post-types.php:1784
+#: post-types/post-types.php:1820 post-types/post-types.php:1856
 msgid "Edit"
 msgstr ""
 
-#: post-types/post-types.php:1723
+#: post-types/post-types.php:1749
 msgid "Edit Speaker"
 msgstr ""
 
-#: post-types/post-types.php:1724
+#: post-types/post-types.php:1750
 msgid "New Speaker"
 msgstr ""
 
-#: post-types/post-types.php:1725 post-types/post-types.php:1726
+#: post-types/post-types.php:1751 post-types/post-types.php:1752
 msgid "View Speaker"
 msgstr ""
 
-#: post-types/post-types.php:1727
+#: post-types/post-types.php:1753
 msgid "Search Speakers"
 msgstr ""
 
-#: post-types/post-types.php:1728
+#: post-types/post-types.php:1754
 msgid "No speakers found"
 msgstr ""
 
-#: post-types/post-types.php:1729
+#: post-types/post-types.php:1755
 msgid "No speakers found in Trash"
 msgstr ""
 
-#: post-types/post-types.php:1730
+#: post-types/post-types.php:1756
 msgid "Parent Speaker:"
 msgstr ""
 
-#: post-types/post-types.php:1731
+#: post-types/post-types.php:1757
 msgid "Speaker Photo"
 msgstr ""
 
-#: post-types/post-types.php:1732
+#: post-types/post-types.php:1758
 msgid "Set Speaker Photo"
 msgstr ""
 
-#: post-types/post-types.php:1733
+#: post-types/post-types.php:1759
 msgid "Use Speaker Photo"
 msgstr ""
 
-#: post-types/post-types.php:1734
+#: post-types/post-types.php:1760
 msgid "Remove Speaker Photo"
 msgstr ""
 
-#: post-types/post-types.php:1757
+#: post-types/post-types.php:1783
 msgid "Create New Session"
 msgstr ""
 
-#: post-types/post-types.php:1759
+#: post-types/post-types.php:1785
 msgid "Edit Session"
 msgstr ""
 
-#: post-types/post-types.php:1760
+#: post-types/post-types.php:1786
 msgid "New Session"
 msgstr ""
 
-#: post-types/post-types.php:1761 post-types/post-types.php:1762
+#: post-types/post-types.php:1787 post-types/post-types.php:1788
 msgid "View Session"
 msgstr ""
 
-#: post-types/post-types.php:1763
+#: post-types/post-types.php:1789
 msgid "Search Sessions"
 msgstr ""
 
-#: post-types/post-types.php:1764
+#: post-types/post-types.php:1790
 msgid "No sessions found"
 msgstr ""
 
-#: post-types/post-types.php:1765
+#: post-types/post-types.php:1791
 msgid "No sessions found in Trash"
 msgstr ""
 
-#: post-types/post-types.php:1766
+#: post-types/post-types.php:1792
 msgid "Parent Session:"
 msgstr ""
 
-#: post-types/post-types.php:1767
+#: post-types/post-types.php:1793
 msgid "Session Photo"
 msgstr ""
 
-#: post-types/post-types.php:1768
+#: post-types/post-types.php:1794
 msgid "Set Session Photo"
 msgstr ""
 
-#: post-types/post-types.php:1769
+#: post-types/post-types.php:1795
 msgid "Use Session Photo"
 msgstr ""
 
-#: post-types/post-types.php:1770
+#: post-types/post-types.php:1796
 msgid "Remove Session Photo"
 msgstr ""
 
-#: post-types/post-types.php:1791
+#: post-types/post-types.php:1817
 msgid "Sponsor"
 msgstr ""
 
-#: post-types/post-types.php:1793
+#: post-types/post-types.php:1819
 msgid "Create New Sponsor"
 msgstr ""
 
-#: post-types/post-types.php:1795
+#: post-types/post-types.php:1821
 msgid "Edit Sponsor"
 msgstr ""
 
-#: post-types/post-types.php:1796
+#: post-types/post-types.php:1822
 msgid "New Sponsor"
 msgstr ""
 
-#: post-types/post-types.php:1797 post-types/post-types.php:1798
+#: post-types/post-types.php:1823 post-types/post-types.php:1824
 msgid "View Sponsor"
 msgstr ""
 
-#: post-types/post-types.php:1799
+#: post-types/post-types.php:1825
 msgid "Search Sponsors"
 msgstr ""
 
-#: post-types/post-types.php:1800
+#: post-types/post-types.php:1826
 msgid "No sponsors found"
 msgstr ""
 
-#: post-types/post-types.php:1801
+#: post-types/post-types.php:1827
 msgid "No sponsors found in Trash"
 msgstr ""
 
-#: post-types/post-types.php:1802
+#: post-types/post-types.php:1828
 msgid "Parent Sponsor:"
 msgstr ""
 
-#: post-types/post-types.php:1803
+#: post-types/post-types.php:1829
 msgid "Sponsor logo"
 msgstr ""
 
-#: post-types/post-types.php:1804
+#: post-types/post-types.php:1830
 msgid "Set Sponsor logo"
 msgstr ""
 
-#: post-types/post-types.php:1805
+#: post-types/post-types.php:1831
 msgid "Use Sponsor logo"
 msgstr ""
 
-#: post-types/post-types.php:1806
+#: post-types/post-types.php:1832
 msgid "Remove Sponsor logo"
 msgstr ""
 
-#: post-types/post-types.php:1827
+#: post-types/post-types.php:1853
 msgid "Organizer"
 msgstr ""
 
-#: post-types/post-types.php:1829
+#: post-types/post-types.php:1855
 msgid "Create New Organizer"
 msgstr ""
 
-#: post-types/post-types.php:1831
+#: post-types/post-types.php:1857
 msgid "Edit Organizer"
 msgstr ""
 
-#: post-types/post-types.php:1832
+#: post-types/post-types.php:1858
 msgid "New Organizer"
 msgstr ""
 
-#: post-types/post-types.php:1833 post-types/post-types.php:1834
+#: post-types/post-types.php:1859 post-types/post-types.php:1860
 msgid "View Organizer"
 msgstr ""
 
-#: post-types/post-types.php:1835
+#: post-types/post-types.php:1861
 msgid "Search Organizers"
 msgstr ""
 
-#: post-types/post-types.php:1836
+#: post-types/post-types.php:1862
 msgid "No organizers found"
 msgstr ""
 
-#: post-types/post-types.php:1837
+#: post-types/post-types.php:1863
 msgid "No organizers found in Trash"
 msgstr ""
 
-#: post-types/post-types.php:1838
+#: post-types/post-types.php:1864
 msgid "Parent Organizer:"
 msgstr ""
 
-#: post-types/post-types.php:1839
+#: post-types/post-types.php:1865
 msgid "Organizer logo"
 msgstr ""
 
-#: post-types/post-types.php:1840
+#: post-types/post-types.php:1866
 msgid "Set Organizer logo"
 msgstr ""
 
-#: post-types/post-types.php:1841
+#: post-types/post-types.php:1867
 msgid "Use Organizer logo"
 msgstr ""
 
-#: post-types/post-types.php:1842
+#: post-types/post-types.php:1868
 msgid "Remove Organizer logo"
 msgstr ""
 
-#: post-types/post-types.php:1868
+#: post-types/post-types.php:1894
 msgid "Tracks"
 msgstr ""
 
-#: post-types/post-types.php:1869
+#: post-types/post-types.php:1895
 msgid "Track"
 msgstr ""
 
-#: post-types/post-types.php:1870
+#: post-types/post-types.php:1896
 msgid "Search Tracks"
 msgstr ""
 
-#: post-types/post-types.php:1871
+#: post-types/post-types.php:1897
 msgid "Popular Tracks"
 msgstr ""
 
-#: post-types/post-types.php:1872
+#: post-types/post-types.php:1898
 msgid "All Tracks"
 msgstr ""
 
-#: post-types/post-types.php:1873
+#: post-types/post-types.php:1899
 msgid "Edit Track"
 msgstr ""
 
-#: post-types/post-types.php:1874
+#: post-types/post-types.php:1900
 msgid "Update Track"
 msgstr ""
 
-#: post-types/post-types.php:1875
+#: post-types/post-types.php:1901
 msgid "Add Track"
 msgstr ""
 
-#: post-types/post-types.php:1876
+#: post-types/post-types.php:1902
 msgid "New Track"
 msgstr ""
 
-#: post-types/post-types.php:1891
+#: post-types/post-types.php:1917
 msgid "Sponsor Levels"
 msgstr ""
 
-#: post-types/post-types.php:1892
+#: post-types/post-types.php:1918
 msgid "Sponsor Level"
 msgstr ""
 
-#: post-types/post-types.php:1893
+#: post-types/post-types.php:1919
 msgid "Search Sponsor Levels"
 msgstr ""
 
-#: post-types/post-types.php:1894
+#: post-types/post-types.php:1920
 msgid "Popular Sponsor Levels"
 msgstr ""
 
-#: post-types/post-types.php:1895
+#: post-types/post-types.php:1921
 msgid "All Sponsor Levels"
 msgstr ""
 
-#: post-types/post-types.php:1896
+#: post-types/post-types.php:1922
 msgid "Edit Sponsor Level"
 msgstr ""
 
-#: post-types/post-types.php:1897
+#: post-types/post-types.php:1923
 msgid "Update Sponsor Level"
 msgstr ""
 
-#: post-types/post-types.php:1898
+#: post-types/post-types.php:1924
 msgid "Add Sponsor Level"
 msgstr ""
 
-#: post-types/post-types.php:1899
+#: post-types/post-types.php:1925
 msgid "New Sponsor Level"
 msgstr ""
 
-#: post-types/post-types.php:1927 post-types/post-types.php:1934
+#: post-types/post-types.php:1940
+msgid "Speaker Categories"
+msgstr ""
+
+#: post-types/post-types.php:1941
+msgid "Speaker Category"
+msgstr ""
+
+#: post-types/post-types.php:1942
+msgid "Search Categories"
+msgstr ""
+
+#: post-types/post-types.php:1943
+msgid "Popular Categories"
+msgstr ""
+
+#: post-types/post-types.php:1944
+msgid "All Categories"
+msgstr ""
+
+#: post-types/post-types.php:1945
+msgid "Edit Category"
+msgstr ""
+
+#: post-types/post-types.php:1946
+msgid "Update Category"
+msgstr ""
+
+#: post-types/post-types.php:1947
+msgid "Add Category"
+msgstr ""
+
+#: post-types/post-types.php:1948
+msgid "New Category"
+msgstr ""
+
+#: post-types/post-types.php:1976 post-types/post-types.php:1983
 msgid "Avatar"
 msgstr ""
 
-#: post-types/post-types.php:2051
+#: post-types/post-types.php:2100
 msgid "Custom"
 msgstr ""
 
-#: post-types/post-types.php:2087
+#: post-types/post-types.php:2136
 #, php-format
 msgid "%s Speaker"
 msgid_plural "%s Speakers"
 msgstr[0] ""
 msgstr[1] ""
 
-#: post-types/post-types.php:2090
+#: post-types/post-types.php:2139
 #, php-format
 msgid "%s Session"
 msgid_plural "%s Sessions"
 msgstr[0] ""
 msgstr[1] ""
 
-#: post-types/post-types.php:2093
+#: post-types/post-types.php:2142
 #, php-format
 msgid "%s Sponsor"
 msgid_plural "%s Sponsors"

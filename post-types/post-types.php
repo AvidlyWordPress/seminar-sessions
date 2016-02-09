@@ -290,10 +290,11 @@ class Seminar_Post_Types {
 			'order'          => 'desc',
 			'track'          => 'all',
 			'speaker_link'   => 'permalink',
-			'category' 		 => 'all'
+			'category' 		 => 'all',
+			'show_description' => apply_filters( 'h1ss_shortcode_speakers_description', true )
 		), $attr );
 
-		foreach ( array( 'orderby', 'order', 'track', 'speaker_link' ) as $key_for_case_sensitive_value ) {
+		foreach ( array( 'orderby', 'order', 'track', 'speaker_link', 'category' ) as $key_for_case_sensitive_value ) {
 			$attr[ $key_for_case_sensitive_value ] = strtolower( $attr[ $key_for_case_sensitive_value ] );
 		}
 
@@ -304,7 +305,6 @@ class Seminar_Post_Types {
 		if ( !is_array( $attr['avatar_size'] ) && !is_string( $attr['avatar_size'] ) ) {
 			$attr['avatar_size'] = array( absint( $attr['avatar_size'] ), absint( $attr['avatar_size'] ) );
 		}
-		error_log( "Avatar size: " . print_r( $attr['avatar_size'], true ) );
 
 		// Fetch all the relevant sessions
 		$session_args = array(
@@ -316,16 +316,6 @@ class Seminar_Post_Types {
 			$session_args['tax_query'] = array(
 				array(
 					'taxonomy' => 'wcb_track',
-					'field'    => 'slug',
-					'terms'    => explode( ',', $attr['track'] ),
-				),
-			);
-		}
-
-		if ( 'all' != $attr['category'] ) {
-			$session_args['tax_query'] = array(
-				array(
-					'taxonomy' => 'wcb_speakercat',
 					'field'    => 'slug',
 					'terms'    => explode( ',', $attr['track'] ),
 				),
@@ -368,6 +358,16 @@ class Seminar_Post_Types {
 
 		if ( 'all' != $attr['track'] ) {
 			$speaker_args['post__in'] = $speaker_ids;
+		}
+
+		if ( 'all' != $attr['category'] ) {
+			$speaker_args['tax_query'] = array(
+				array(
+					'taxonomy' => 'wcb_speakercat',
+					'field'    => 'slug',
+					'terms'    => explode( ',', $attr['category'] ),
+				),
+			);
 		}
 
 		$speakers = new WP_Query( $speaker_args );

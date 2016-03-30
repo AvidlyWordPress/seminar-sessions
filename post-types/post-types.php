@@ -508,6 +508,7 @@ class Seminar_Post_Types {
 
 		$query_args = array(
 			'post_type'      => 'wcb_session',
+			'post_status'	 => 'publish',
 			'posts_per_page' => -1,
 			'meta_query'     => array(
 				'relation'   => 'AND',

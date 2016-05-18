@@ -299,7 +299,7 @@ class Seminar_Post_Types {
 		}
 
 		$attr['show_avatars'] = $this->str_to_bool( $attr['show_avatars'] );
-		$attr['orderby']      = in_array( $attr['orderby'],      array( 'date', 'title', 'rand' ) ) ? $attr['orderby']      : 'date';
+		$attr['orderby']      = in_array( $attr['orderby'],      array( 'date', 'title', 'rand', 'menu_order' ) ) ? $attr['orderby']      : 'date';
 		$attr['order']        = in_array( $attr['order'],        array( 'asc', 'desc'           ) ) ? $attr['order']        : 'desc';
 		$attr['speaker_link'] = in_array( $attr['speaker_link'], array( 'permalink'             ) ) ? $attr['speaker_link'] : 'permalink';
 		if ( !is_array( $attr['avatar_size'] ) && !is_string( $attr['avatar_size'] ) ) {

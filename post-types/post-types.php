@@ -1765,7 +1765,7 @@ class Seminar_Post_Types {
 		register_post_type( 'wcb_speaker', array(
 			'labels'            => $labels,
 			'rewrite'           => array( 'slug' => 'speaker', 'with_front' => true ),
-			'supports'          => array( 'title', 'editor', 'revisions', 'thumbnail', 'page-attributes' ),
+			'supports'          => array( 'title', 'editor', 'excerpt', 'revisions', 'thumbnail', 'page-attributes' ),
 			'menu_position'     => 20,
 			'public'            => true,
 			'show_ui'           => true,

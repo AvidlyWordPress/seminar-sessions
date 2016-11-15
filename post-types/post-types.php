@@ -486,6 +486,14 @@ class Seminar_Post_Types {
 	 * @todo cleanup
 	 */
 	function shortcode_schedule( $attr, $content ) {
+
+		// Allow customizing this function and returning early, avoiding running things twice
+		$custom_html = apply_filters( 'h1ss_pre_shortcode_schedule_html', '', $attr, $content );
+
+		if ( '' != $custom_html ) {
+			return $custom_html;
+		}
+
 		$attr = shortcode_atts( array(
 			'date'         => null,
 			'tracks'       => 'all',

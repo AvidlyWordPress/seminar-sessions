@@ -904,6 +904,7 @@ class Seminar_Post_Types {
 			'date'           => null,
 			'show_meta'      => false,
 			'show_avatars'   => false,
+			'full_content'	 => false,
 			'avatar_size'    => 100,
 			'track'          => 'all',
 			'speaker_link'   => 'wporg', // anchor|wporg|permalink|none
@@ -913,7 +914,7 @@ class Seminar_Post_Types {
 		), $attr );
 
 		// Convert bools to real booleans.
-		$bools = array( 'show_meta', 'show_avatars' );
+		$bools = array( 'show_meta', 'show_avatars', 'full_content' );
 		foreach ( $bools as $key )
 			$attr[ $key ] = $this->str_to_bool( $attr[ $key ] );
 
@@ -1077,12 +1078,21 @@ class Seminar_Post_Types {
 				?>
 
 				<div id="wcorg-session-<?php the_ID(); ?>" class="wcorg-session" >
-					<h2><?php the_title(); ?></h2>
+					<h3><?php the_title(); ?></h3>
 					<div class="wcorg-session-description">
 						<?php the_post_thumbnail(); ?>
 						<?php echo $session_meta; ?>
 						<?php echo $speakers_avatars; ?>
-						<?php the_content(); ?>
+						<?php echo '<p class="session-time">' . esc_html( $this->get_session_date_and_time() ) . '</p>'; ?>
+						<?php
+						if ( $attr['full_content'] ) {
+							global $post;
+							echo apply_filters( 'the_content', $post->post_content );
+
+						} else {
+							the_content();
+						}
+						?>
 
 						<?php if ( $links ) : ?>
 							<ul class="wcorg-session-links">
@@ -1096,6 +1106,7 @@ class Seminar_Post_Types {
 							</ul>
 						<?php endif; ?>
 					</div>
+					<hr>
 				</div>
 
 			<?php endwhile; ?>

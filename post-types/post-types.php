@@ -618,7 +618,8 @@ class Seminar_Post_Types {
 		foreach ( $columns as $term_id ) {
 			$track = get_term( $term_id, 'wcb_track' );
 			$html .= sprintf(
-				'<th class="wcpt-col-track" data-tablesaw-priority="' . $column_count . '"> <span class="wcpt-track-name">%s</span> <span class="wcpt-track-description">%s</span> </th>',
+				'<th class="wcpt-col-track wcpt-col-track-%s" data-tablesaw-priority="' . $column_count . '"> <span class="wcpt-track-name">%s</span> <span class="wcpt-track-description">%s</span> </th>',
+				isset( $track->term_id ) ? esc_attr( $track->slug ) : '',
 				isset( $track->term_id ) ? esc_html( $track->name ) : '',
 				isset( $track->term_id ) ? esc_html( $track->description ) : ''
 			);

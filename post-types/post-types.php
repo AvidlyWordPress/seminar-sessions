@@ -498,7 +498,8 @@ class Seminar_Post_Types {
 			'date'         => null,
 			'tracks'       => 'all',
 			'speaker_link' => 'anchor', // anchor|wporg|permalink|none
-			'session_link' => 'permalink', // permalink|anchor|none
+			'session_link' => 'permalink', // permalink|anchor|none,
+			'show_excerpts' => false,
 		), $attr );
 
 		foreach ( array( 'tracks', 'speaker_link', 'session_link' ) as $key_for_case_sensitive_value ) {
@@ -726,6 +727,14 @@ class Seminar_Post_Types {
 				// Add speakers names to the output string.
 				if ( count( $speakers_names ) )
 					$content .= sprintf( ' <span class="wcpt-session-speakers">%s</span>', implode( ', ', $speakers_names ) );
+
+				// Add hidden excerpt to the output string.
+				if ( true === $attr['show_excerpts'] || 1 === $attr['show_exceprts'] ) {
+					setup_postdata( $session );
+					$excerpt = $this->get_more_delimited_text_or_first_paragraph( $session->post_content );
+					$content .= '<div class="session-excerpt" aria-hidden="true">' . $excerpt . '</div>';
+					wp_reset_postdata();
+				}
 
 				$columns_clone = $columns;
 
@@ -2201,6 +2210,29 @@ class Seminar_Post_Types {
 			$status = 'closed';
 
 		return $status;
+	}
+
+	/**
+	 * Gets the text before the <!--more--> tag or if it's missing, the first paragraph.
+	 *
+	 * @param  string $content
+	 * @return string
+	 */
+	private function get_more_delimited_text_or_first_paragraph( $content ) {
+
+		$trimmed_content = '';
+		$extended = get_extended( $content );
+
+		// If there's no more tag, try and get the first paragraph instead.
+		if ( '' === $extended['extended'] ) {
+			$formatted_content = wpautop( $content );
+
+			$trimmed_content = substr( $formatted_content, 0, strpos( $formatted_content, '</p>' ) + 4 );
+		} else {
+			$trimmed_content = $extended['main'];
+		}
+
+		return $trimmed_content;
 	}
 }
 

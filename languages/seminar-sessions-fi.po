@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Seminar Sessions\n"
-"POT-Creation-Date: 2016-02-09 15:44+0200\n"
-"PO-Revision-Date: 2016-02-09 15:48+0200\n"
+"POT-Creation-Date: 2017-11-16 10:57+0200\n"
+"PO-Revision-Date: 2017-11-16 10:59+0200\n"
 "Last-Translator: Daniel Koskinen <daniel.koskinen@gmail.com>\n"
 "Language-Team: Daniel Koskinen <daniel.koskinen@gmail.com>\n"
 "Language: fi\n"
@@ -10,7 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 1.8.4\n"
+"X-Generator: Poedit 1.8.11\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-WPHeader: seminar-sessions.php\n"
 "X-Poedit-SourceCharset: UTF-8\n"
@@ -34,12 +34,12 @@ msgstr "Lava: %s"
 msgid "Your Sponsors"
 msgstr "Sponsorisi"
 
-#: post-types/inc/widgets.php:19 post-types/post-types.php:1816
+#: post-types/inc/widgets.php:19 post-types/post-types.php:1851
 msgid "Sponsors"
 msgstr "Sponsorit"
 
-#: post-types/inc/widgets.php:84 post-types/inc/widgets.php:177
-#: post-types/inc/widgets.php:286 post-types/inc/widgets.php:387
+#: post-types/inc/widgets.php:84 post-types/inc/widgets.php:183
+#: post-types/inc/widgets.php:306 post-types/inc/widgets.php:407
 msgid "Title:"
 msgstr "Otsikko:"
 
@@ -47,55 +47,63 @@ msgstr "Otsikko:"
 msgid "Your Speakers"
 msgstr "Puhujat"
 
-#: post-types/inc/widgets.php:115 post-types/post-types.php:1227
-#: post-types/post-types.php:1322 post-types/post-types.php:1744
-#: post-types/post-types.php:1994
+#: post-types/inc/widgets.php:115 post-types/post-types.php:1262
+#: post-types/post-types.php:1357 post-types/post-types.php:1779
+#: post-types/post-types.php:2032
 msgid "Speakers"
 msgstr "Puhujat"
 
-#: post-types/inc/widgets.php:157
+#: post-types/inc/widgets.php:160
 msgid "View all speakers &rarr;"
 msgstr "Näytä kaikki puhujat &rarr;"
 
-#: post-types/inc/widgets.php:178 post-types/inc/widgets.php:287
+#: post-types/inc/widgets.php:184 post-types/inc/widgets.php:307
 msgid "Number of speakers to show:"
 msgstr "Listaa kerralla näin monta puhujaa:"
 
-#: post-types/inc/widgets.php:179
+#: post-types/inc/widgets.php:185
 msgid "Speaker image size (in px or name, eg. medium):"
-msgstr ""
+msgstr "Puhujan kuvan koko (pikseleinä tai avainsanana, esim medium):"
 
-#: post-types/inc/widgets.php:182 post-types/inc/widgets.php:290
-#: post-types/inc/widgets.php:391
+#: post-types/inc/widgets.php:187
+msgid "Only show speakers from this category:"
+msgstr "Näytä puhujat vain tästä kategoriasta:"
+
+#: post-types/inc/widgets.php:194
+msgid "All categories"
+msgstr "Kaikki kategoriat"
+
+#: post-types/inc/widgets.php:200 post-types/inc/widgets.php:310
+#: post-types/inc/widgets.php:411
 msgid "Display in random order"
 msgstr "Näytä satunnaisessa järjestyksessä"
 
-#: post-types/inc/widgets.php:224
+#: post-types/inc/widgets.php:244
 msgid "Show off your sessions"
 msgstr "Tee nosto yhdestä esityksestä"
 
-#: post-types/inc/widgets.php:226 post-types/post-types.php:1281
-#: post-types/post-types.php:1780
+#: post-types/inc/widgets.php:246 post-types/post-types.php:1316
+#: post-types/post-types.php:1815
 msgid "Sessions"
 msgstr "Esitykset"
 
-#: post-types/inc/widgets.php:268
+#: post-types/inc/widgets.php:288
 msgid "View all sessions &rarr;"
 msgstr "Näytä kaikki esitykset &rarr;"
 
-#: post-types/inc/widgets.php:329
+#: post-types/inc/widgets.php:349
 msgid "Display your organizing team in the sidebar"
 msgstr "Näytä järjestäjätiimi sivupalkissa"
 
-#: post-types/inc/widgets.php:331 post-types/post-types.php:1852
+#: post-types/inc/widgets.php:351 post-types/post-types.php:1887
 msgid "Organizers"
 msgstr "Järjestäjät"
 
-#: post-types/inc/widgets.php:369
+#: post-types/inc/widgets.php:389
 msgid "Organizing team &rarr;"
 msgstr "Järjestäjätiimi &rarr;"
 
-#: post-types/inc/widgets.php:388
+#: post-types/inc/widgets.php:408
 msgid "Number of organizers to show:"
 msgstr "Näytettävien järjestäjien lkm:"
 
@@ -117,448 +125,456 @@ msgstr "Muuta sponsoritasojen järjestystä"
 msgid "Save Options"
 msgstr "Tallenna asetukset"
 
-#: post-types/post-types.php:607 post-types/post-types.php:1995
+#: post-types/post-types.php:617 post-types/post-types.php:2033
 msgid "Time"
 msgstr "Aika"
 
-#: post-types/post-types.php:1043
+#: post-types/post-types.php:737
+msgid "More information"
+msgstr "Lisätietoa"
+
+#: post-types/post-types.php:738
+msgid "about"
+msgstr "esityksestä"
+
+#: post-types/post-types.php:1068
 #, php-format
 msgid "Presented by %1$s in %2$s."
 msgstr "Puhuja %1$s lavalla %2$s."
 
-#: post-types/post-types.php:1045
+#: post-types/post-types.php:1070
 #, php-format
 msgid "Presented by %s."
 msgstr "Puhuja %s."
 
-#: post-types/post-types.php:1047
+#: post-types/post-types.php:1072
 #, php-format
 msgid "Presented in %s."
 msgstr "Lava %s."
 
-#: post-types/post-types.php:1057
+#: post-types/post-types.php:1082
 msgid "Slides"
 msgstr "Diat"
 
-#: post-types/post-types.php:1064
+#: post-types/post-types.php:1089
 msgid "Video"
 msgstr "Video"
 
-#: post-types/post-types.php:1226 post-types/post-types.php:1745
+#: post-types/post-types.php:1261 post-types/post-types.php:1780
 msgid "Speaker"
 msgstr "Puhuja"
 
-#: post-types/post-types.php:1280 post-types/post-types.php:1781
-#: post-types/post-types.php:2098
+#: post-types/post-types.php:1315 post-types/post-types.php:1816
+#: post-types/post-types.php:2136
 msgid "Session"
 msgstr "Esitys"
 
-#: post-types/post-types.php:1310
+#: post-types/post-types.php:1345
 msgid "Session time"
 msgstr "Esityksen aika"
 
-#: post-types/post-types.php:1323
+#: post-types/post-types.php:1358
 msgid "Session Info"
 msgstr "Esityksen tiedot"
 
-#: post-types/post-types.php:1324
+#: post-types/post-types.php:1359
 msgid "Sponsor Info"
 msgstr "Sponsorin tiedot"
 
-#: post-types/post-types.php:1345
+#: post-types/post-types.php:1380
 msgid "Gravatar Email:"
-msgstr ""
+msgstr "Gravatar-sähköposti:"
 
-#: post-types/post-types.php:1350 post-types/post-types.php:1374
+#: post-types/post-types.php:1385 post-types/post-types.php:1409
 msgid "WordPress.org Username:"
-msgstr ""
+msgstr "WordPress.org Käyttäjätunnus:"
 
-#: post-types/post-types.php:1405
+#: post-types/post-types.php:1440
 msgid ""
 "A speaker entry must exist first. Separate multiple speakers with commas."
 msgstr "Puhuja on tallennettava ensin. Erottele useammat puhujat pilkulla."
 
-#: post-types/post-types.php:1468
+#: post-types/post-types.php:1503
 msgid "Date:"
 msgstr "Pvm:"
 
-#: post-types/post-types.php:1470
+#: post-types/post-types.php:1505
 msgid "Time:"
 msgstr "Kellonaika:"
 
-#: post-types/post-types.php:1472
+#: post-types/post-types.php:1507
 msgid "Session Start Hour"
 msgstr "Esityksen alkamisaika (tunnit)"
 
-#: post-types/post-types.php:1480
+#: post-types/post-types.php:1515
 msgid "Session Start Minutes"
 msgstr "Esityksen alkamisaika (minuutit)"
 
-#: post-types/post-types.php:1488
+#: post-types/post-types.php:1523
 msgid "Session Meridiem"
 msgstr "Aamu/iltapäivä"
 
-#: post-types/post-types.php:1495
+#: post-types/post-types.php:1530
 msgid "Type:"
 msgstr "Tyyppi:"
 
-#: post-types/post-types.php:1497
+#: post-types/post-types.php:1532
 msgid "Regular Session"
 msgstr "Esitys"
 
-#: post-types/post-types.php:1498
+#: post-types/post-types.php:1533
 msgid "Break, Lunch, etc."
 msgstr "Tauko, lounas, jne."
 
-#: post-types/post-types.php:1503
+#: post-types/post-types.php:1538
 msgid "Slides URL:"
 msgstr "Diojen URL:"
 
-#: post-types/post-types.php:1508
+#: post-types/post-types.php:1543
 msgid "WordPress.TV URL:"
-msgstr ""
+msgstr "WordPress.TV URL:"
 
-#: post-types/post-types.php:1746 post-types/post-types.php:1782
-#: post-types/post-types.php:1818 post-types/post-types.php:1854
+#: post-types/post-types.php:1781 post-types/post-types.php:1817
+#: post-types/post-types.php:1853 post-types/post-types.php:1889
 msgid "Add New"
 msgstr "Lisää uusi"
 
-#: post-types/post-types.php:1747
+#: post-types/post-types.php:1782
 msgid "Create New Speaker"
 msgstr "Lisää uusi puhuja"
 
-#: post-types/post-types.php:1748 post-types/post-types.php:1784
-#: post-types/post-types.php:1820 post-types/post-types.php:1856
+#: post-types/post-types.php:1783 post-types/post-types.php:1819
+#: post-types/post-types.php:1855 post-types/post-types.php:1891
 msgid "Edit"
 msgstr "Muokkaa"
 
-#: post-types/post-types.php:1749
+#: post-types/post-types.php:1784
 msgid "Edit Speaker"
 msgstr "Muokkaa puhujaa"
 
-#: post-types/post-types.php:1750
+#: post-types/post-types.php:1785
 msgid "New Speaker"
 msgstr "Uusi puhuja"
 
-#: post-types/post-types.php:1751 post-types/post-types.php:1752
+#: post-types/post-types.php:1786 post-types/post-types.php:1787
 msgid "View Speaker"
 msgstr "Näytä puhuja"
 
-#: post-types/post-types.php:1753
+#: post-types/post-types.php:1788
 msgid "Search Speakers"
 msgstr "Hae puhujia"
 
-#: post-types/post-types.php:1754
+#: post-types/post-types.php:1789
 msgid "No speakers found"
 msgstr "Puhujia ei löytynyt"
 
-#: post-types/post-types.php:1755
+#: post-types/post-types.php:1790
 msgid "No speakers found in Trash"
 msgstr "Puhujia ei löytynyt roskakorista"
 
-#: post-types/post-types.php:1756
+#: post-types/post-types.php:1791
 msgid "Parent Speaker:"
 msgstr ""
 
-#: post-types/post-types.php:1757
+#: post-types/post-types.php:1792
 msgid "Speaker Photo"
 msgstr "Puhujan kuva"
 
-#: post-types/post-types.php:1758
+#: post-types/post-types.php:1793
 msgid "Set Speaker Photo"
 msgstr "Aseta puhujan kuva"
 
-#: post-types/post-types.php:1759
+#: post-types/post-types.php:1794
 msgid "Use Speaker Photo"
 msgstr "Käytä puhujan kuvana"
 
-#: post-types/post-types.php:1760
+#: post-types/post-types.php:1795
 msgid "Remove Speaker Photo"
 msgstr "Poista puhujan kuva"
 
-#: post-types/post-types.php:1783
+#: post-types/post-types.php:1818
 msgid "Create New Session"
 msgstr "Lisää uusi esitys"
 
-#: post-types/post-types.php:1785
+#: post-types/post-types.php:1820
 msgid "Edit Session"
 msgstr "Muokkaa esitystä"
 
-#: post-types/post-types.php:1786
+#: post-types/post-types.php:1821
 msgid "New Session"
 msgstr "Uusi esitys"
 
-#: post-types/post-types.php:1787 post-types/post-types.php:1788
+#: post-types/post-types.php:1822 post-types/post-types.php:1823
 msgid "View Session"
 msgstr "Näytä esitys"
 
-#: post-types/post-types.php:1789
+#: post-types/post-types.php:1824
 msgid "Search Sessions"
 msgstr "Hae esityksiä"
 
-#: post-types/post-types.php:1790
+#: post-types/post-types.php:1825
 msgid "No sessions found"
 msgstr "Esityksiä ei löytynyt"
 
-#: post-types/post-types.php:1791
+#: post-types/post-types.php:1826
 msgid "No sessions found in Trash"
 msgstr "Esityksiä ei löytynyt roskakorista"
 
-#: post-types/post-types.php:1792
+#: post-types/post-types.php:1827
 msgid "Parent Session:"
 msgstr ""
 
-#: post-types/post-types.php:1793
+#: post-types/post-types.php:1828
 msgid "Session Photo"
 msgstr "Esityksen kuva"
 
-#: post-types/post-types.php:1794
+#: post-types/post-types.php:1829
 msgid "Set Session Photo"
 msgstr "Aseta esityksen kuva"
 
-#: post-types/post-types.php:1795
+#: post-types/post-types.php:1830
 msgid "Use Session Photo"
 msgstr "Käytä esityksen kuvana"
 
-#: post-types/post-types.php:1796
+#: post-types/post-types.php:1831
 msgid "Remove Session Photo"
 msgstr "Poista esityksen kuva"
 
-#: post-types/post-types.php:1817
+#: post-types/post-types.php:1852
 msgid "Sponsor"
 msgstr "Sponsori"
 
-#: post-types/post-types.php:1819
+#: post-types/post-types.php:1854
 msgid "Create New Sponsor"
 msgstr "Luo uusi sponsori"
 
-#: post-types/post-types.php:1821
+#: post-types/post-types.php:1856
 msgid "Edit Sponsor"
 msgstr "Muokkaa sponsoria"
 
-#: post-types/post-types.php:1822
+#: post-types/post-types.php:1857
 msgid "New Sponsor"
 msgstr "Uusi sponsori"
 
-#: post-types/post-types.php:1823 post-types/post-types.php:1824
+#: post-types/post-types.php:1858 post-types/post-types.php:1859
 msgid "View Sponsor"
 msgstr "Näytä sponsori"
 
-#: post-types/post-types.php:1825
+#: post-types/post-types.php:1860
 msgid "Search Sponsors"
 msgstr "Hae sponsoreita"
 
-#: post-types/post-types.php:1826
+#: post-types/post-types.php:1861
 msgid "No sponsors found"
 msgstr "Sponsoreita ei löytynyt"
 
-#: post-types/post-types.php:1827
+#: post-types/post-types.php:1862
 msgid "No sponsors found in Trash"
 msgstr "Sponsoreita ei löytynyt roskakorista"
 
-#: post-types/post-types.php:1828
+#: post-types/post-types.php:1863
 msgid "Parent Sponsor:"
 msgstr ""
 
-#: post-types/post-types.php:1829
+#: post-types/post-types.php:1864
 msgid "Sponsor logo"
 msgstr "Sponsorin logo"
 
-#: post-types/post-types.php:1830
+#: post-types/post-types.php:1865
 msgid "Set Sponsor logo"
 msgstr "Aseta sponsorin logo"
 
-#: post-types/post-types.php:1831
+#: post-types/post-types.php:1866
 msgid "Use Sponsor logo"
 msgstr "Käytä sponsorin logona"
 
-#: post-types/post-types.php:1832
+#: post-types/post-types.php:1867
 msgid "Remove Sponsor logo"
 msgstr "Poista sponsorin logo"
 
-#: post-types/post-types.php:1853
+#: post-types/post-types.php:1888
 msgid "Organizer"
 msgstr "Järjestäjä"
 
-#: post-types/post-types.php:1855
+#: post-types/post-types.php:1890
 msgid "Create New Organizer"
 msgstr "Luo uusi järjestäjä"
 
-#: post-types/post-types.php:1857
+#: post-types/post-types.php:1892
 msgid "Edit Organizer"
 msgstr "Muokkaa järjestäjän tietoja"
 
-#: post-types/post-types.php:1858
+#: post-types/post-types.php:1893
 msgid "New Organizer"
 msgstr "Uusi järjestäjä"
 
-#: post-types/post-types.php:1859 post-types/post-types.php:1860
+#: post-types/post-types.php:1894 post-types/post-types.php:1895
 msgid "View Organizer"
 msgstr "Näytä järjestäjä"
 
-#: post-types/post-types.php:1861
+#: post-types/post-types.php:1896
 msgid "Search Organizers"
 msgstr "Hae järjestäjiä"
 
-#: post-types/post-types.php:1862
+#: post-types/post-types.php:1897
 msgid "No organizers found"
 msgstr "Järjestäjiä ei löytynyt"
 
-#: post-types/post-types.php:1863
+#: post-types/post-types.php:1898
 msgid "No organizers found in Trash"
 msgstr "Järjestäjiä ei löytynyt roskakorista"
 
-#: post-types/post-types.php:1864
+#: post-types/post-types.php:1899
 msgid "Parent Organizer:"
 msgstr ""
 
-#: post-types/post-types.php:1865
+#: post-types/post-types.php:1900
 msgid "Organizer logo"
 msgstr "Järjestäjän logo"
 
-#: post-types/post-types.php:1866
+#: post-types/post-types.php:1901
 msgid "Set Organizer logo"
 msgstr "Aseta järjestäjän logo"
 
-#: post-types/post-types.php:1867
+#: post-types/post-types.php:1902
 msgid "Use Organizer logo"
 msgstr "Käytä järjestäjän logona"
 
-#: post-types/post-types.php:1868
+#: post-types/post-types.php:1903
 msgid "Remove Organizer logo"
 msgstr "Poista järjestäjän logo"
 
-#: post-types/post-types.php:1894
+#: post-types/post-types.php:1929
 msgid "Tracks"
 msgstr "Lavat"
 
-#: post-types/post-types.php:1895
+#: post-types/post-types.php:1930
 msgid "Track"
 msgstr "Lava"
 
-#: post-types/post-types.php:1896
+#: post-types/post-types.php:1931
 msgid "Search Tracks"
 msgstr "Hae lavoja"
 
-#: post-types/post-types.php:1897
+#: post-types/post-types.php:1932
 msgid "Popular Tracks"
 msgstr "Suositut lavat"
 
-#: post-types/post-types.php:1898
+#: post-types/post-types.php:1933
 msgid "All Tracks"
 msgstr "Kaikki lavat"
 
-#: post-types/post-types.php:1899
+#: post-types/post-types.php:1934
 msgid "Edit Track"
 msgstr "Muokkaa lavaa"
 
-#: post-types/post-types.php:1900
+#: post-types/post-types.php:1935
 msgid "Update Track"
 msgstr "Päivitä lava"
 
-#: post-types/post-types.php:1901
+#: post-types/post-types.php:1936
 msgid "Add Track"
 msgstr "Lisää lava"
 
-#: post-types/post-types.php:1902
+#: post-types/post-types.php:1937
 msgid "New Track"
 msgstr "Uusi lava"
 
-#: post-types/post-types.php:1917
+#: post-types/post-types.php:1953
 msgid "Sponsor Levels"
 msgstr "Sponsoritasot"
 
-#: post-types/post-types.php:1918
+#: post-types/post-types.php:1954
 msgid "Sponsor Level"
 msgstr "Sponsoritaso"
 
-#: post-types/post-types.php:1919
+#: post-types/post-types.php:1955
 msgid "Search Sponsor Levels"
 msgstr "Hae sponsoritasoja"
 
-#: post-types/post-types.php:1920
+#: post-types/post-types.php:1956
 msgid "Popular Sponsor Levels"
 msgstr "Suositut sponsoritasot"
 
-#: post-types/post-types.php:1921
+#: post-types/post-types.php:1957
 msgid "All Sponsor Levels"
 msgstr "Kaikki sponsoritasot"
 
-#: post-types/post-types.php:1922
+#: post-types/post-types.php:1958
 msgid "Edit Sponsor Level"
 msgstr "Muokkaa sponsoritasoa"
 
-#: post-types/post-types.php:1923
+#: post-types/post-types.php:1959
 msgid "Update Sponsor Level"
 msgstr "Päivitä sponsoritaso"
 
-#: post-types/post-types.php:1924
+#: post-types/post-types.php:1960
 msgid "Add Sponsor Level"
 msgstr "Lisää sponsoritaso"
 
-#: post-types/post-types.php:1925
+#: post-types/post-types.php:1961
 msgid "New Sponsor Level"
 msgstr "Uusi sponsoritaso"
 
-#: post-types/post-types.php:1940
+#: post-types/post-types.php:1977
 msgid "Speaker Categories"
 msgstr "Puhujien kategoriat"
 
-#: post-types/post-types.php:1941
+#: post-types/post-types.php:1978
 msgid "Speaker Category"
 msgstr "Puhujan kategoria"
 
-#: post-types/post-types.php:1942
+#: post-types/post-types.php:1979
 msgid "Search Categories"
 msgstr "Hae kategorioita"
 
-#: post-types/post-types.php:1943
+#: post-types/post-types.php:1980
 msgid "Popular Categories"
 msgstr "Suositut kategoriat"
 
-#: post-types/post-types.php:1944
+#: post-types/post-types.php:1981
 msgid "All Categories"
 msgstr "Kaikki kategoriat"
 
-#: post-types/post-types.php:1945
+#: post-types/post-types.php:1982
 msgid "Edit Category"
 msgstr "Muokkaa kategoriaa"
 
-#: post-types/post-types.php:1946
+#: post-types/post-types.php:1983
 msgid "Update Category"
 msgstr "Päivitä kategoria"
 
-#: post-types/post-types.php:1947
+#: post-types/post-types.php:1984
 msgid "Add Category"
 msgstr "Lisää kategoria"
 
-#: post-types/post-types.php:1948
+#: post-types/post-types.php:1985
 msgid "New Category"
 msgstr "Uusi kategoria"
 
-#: post-types/post-types.php:1976 post-types/post-types.php:1983
+#: post-types/post-types.php:2014 post-types/post-types.php:2021
 msgid "Avatar"
 msgstr "Kuva"
 
-#: post-types/post-types.php:2100
+#: post-types/post-types.php:2138
 msgid "Custom"
 msgstr "Custom"
 
-#: post-types/post-types.php:2136
+#: post-types/post-types.php:2174
 #, php-format
 msgid "%s Speaker"
 msgid_plural "%s Speakers"
 msgstr[0] "%s puhuja"
 msgstr[1] "%s puhujaa"
 
-#: post-types/post-types.php:2139
+#: post-types/post-types.php:2177
 #, php-format
 msgid "%s Session"
 msgid_plural "%s Sessions"
 msgstr[0] "%s esitys"
 msgstr[1] "%s esitystä"
 
-#: post-types/post-types.php:2142
+#: post-types/post-types.php:2180
 #, php-format
 msgid "%s Sponsor"
 msgid_plural "%s Sponsors"

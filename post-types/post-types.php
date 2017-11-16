@@ -729,7 +729,7 @@ class Seminar_Post_Types {
 					$content .= sprintf( ' <span class="wcpt-session-speakers">%s</span>', implode( ', ', $speakers_names ) );
 
 				// Add hidden excerpt to the output string.
-				if ( true === $attr['show_excerpts'] || 1 === intval( $attr['show_excerpts'] ) ) {
+				if ( 'session' == $session_type && ( true === $attr['show_excerpts'] || 1 === intval( $attr['show_excerpts'] ) ) ) {
 					setup_postdata( $session );
 					$excerpt = $this->get_more_delimited_text_or_first_paragraph( $session->post_content );
 					$content .= '<div class="session-excerpt" aria-hidden="true">' . $excerpt 

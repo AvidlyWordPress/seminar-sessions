@@ -732,7 +732,11 @@ class Seminar_Post_Types {
 				if ( true === $attr['show_excerpts'] || 1 === intval( $attr['show_excerpts'] ) ) {
 					setup_postdata( $session );
 					$excerpt = $this->get_more_delimited_text_or_first_paragraph( $session->post_content );
-					$content .= '<div class="session-excerpt" aria-hidden="true">' . $excerpt . '</div>';
+					$content .= '<div class="session-excerpt" aria-hidden="true">' . $excerpt 
+							 . '<br><a class="session-readmore" href="' . get_permalink( $session->ID ) . '">' 
+							 . esc_html__( 'More information', 'seminar-sessions' ) 
+							 . '<span class="screen-reader-text">' . esc_html__( 'about', 'seminar-sessions' ) 
+							 . $session->post_title . '</span><span aria-hidden="true"> &raquo;</span></a></div>';
 					wp_reset_postdata();
 				}
 
